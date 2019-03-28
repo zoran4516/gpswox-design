@@ -1,0 +1,2757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png">
+    <title>GPS Tracking & Fleet Management System</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/css/leaflet.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-datepicker3.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/app.css">
+</head>
+
+<body>
+    <div class="header collapse in menuCollapse hidden-xs menu-full">
+        <div class="logo">
+            <a href="#">
+                <img src="assets/image/logo-header-main.png" class="logo-main" />
+                <img src="assets/image/logo-header-gpswox.png" class="logo-alt" />
+            </a>
+        </div>
+
+        <ul class="nav navbar-nav pull-right">
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown"><span class="icon menu tools"></span> <span class="text">Tools</span></a>
+                <ul class="dropdown-menu dropdown-menu-left">
+                    <li><a href="#"><span class="gpswoxicon alerts"></span>Alerts</a></li>
+                    <li><a href="#" class="menu-geofencing"><span class="gpswoxicon geofencing"></span>Geofencing</a></li>
+                    <li><a href="#" class="menu-routes"><span class="gpswoxicon routes"></span>Routes</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#reports-modal"><span class="gpswoxicon reports"></span>Reports</a></li>
+                    <li><a href="#"><span class="gpswoxicon ruler"></span>Ruler</a></li>
+                    <li><a href="#" class="menu-poi"><span class="gpswoxicon poi"></span>POI</a></li>
+                    <li><a href="#"><span class="gpswoxicon show-point"></span>Show Point</a></li>
+                    <li><a href="#"><span class="gpswoxicon send-command"></span>Send Command</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" data-toggle="modal" data-target="#setup-modal"><span class="icon menu gear"></span> <span class="text">Setup</span></a>
+            </li>
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown"><span class="icon menu account"></span> <span class="text">My Account</span></a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a href="#"><span class="gpswoxicon membership"></span> Membership</a></li>
+                    <li><a href="#"><span class="gpswoxicon my-icons"></span> My icons</a></li>
+                    <li><a href="#"><span class="gpswoxicon change-password"></span> Change password</a></li>
+                    <li><a href="#" class="menu-support"><span class="gpswoxicon support"></span> Support</a></li>
+                    <li><a href="#"><span class="gpswoxicon logout"></span> Logout</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" data-toggle="modal" data-target="#language-selection">
+                    <img src="assets/image/flags/gb.png" class="framed" />
+                </a>
+            </li>
+        </ul>
+
+        <div class="collapse-control">
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <div class="header-collapsed collapse menuCollapse hidden-xs menu-collapsed">
+        <div class="logo">
+            <a href="#">
+                <img src="assets/image/logo-header-main.png" class="logo-main" />
+            </a>
+        </div>
+
+        <span class="inner-corner left"></span>
+
+        <ul class="nav navbar-nav pull-right">
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown"><span class="icon menu tools"></span> <span class="text collapse menuCollapse"></span></a>
+                <ul class="dropdown-menu dropdown-menu-left">
+                    <li><a href="#"><span class="gpswoxicon alerts"></span>Alerts</a></li>
+                    <li><a href="#" class="menu-geofencing"><span class="gpswoxicon geofencing"></span>Geofencing</a></li>
+                    <li><a href="#" class="menu-routes"><span class="gpswoxicon routes"></span>Routes</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#reports-modal"><span class="gpswoxicon reports"></span>Reports</a></li>
+                    <li><a href="#"><span class="gpswoxicon ruler"></span>Ruler</a></li>
+                    <li><a href="#" class="menu-poi"><span class="gpswoxicon poi"></span>POI</a></li>
+                    <li><a href="#"><span class="gpswoxicon show-point"></span>Show Point</a></li>
+                    <li><a href="#"><span class="gpswoxicon send-command"></span>Send Command</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" data-toggle="modal" data-target="#setup-modal"><span class="icon menu gear"></span> <span class="text collapse menuCollapse"></span></a>
+            </li>
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown"><span class="icon menu account"></span> <span class="text collapse menuCollapse"></span></a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a href="#"><span class="gpswoxicon membership"></span> Membership</a></li>
+                    <li><a href="#"><span class="gpswoxicon my-icons"></span> My icons</a></li>
+                    <li><a href="#"><span class="gpswoxicon change-password"></span> Change password</a></li>
+                    <li><a href="#" class="menu-support"><span class="gpswoxicon support"></span> Support</a></li>
+                    <li><a href="#"><span class="gpswoxicon logout"></span> Logout</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" data-toggle="modal" data-target="#language-selection">
+                    <img src="assets/image/flags/gb.png" class="framed" />
+                </a>
+            </li>
+        </ul>
+
+        <span class="inner-corner right"></span>
+
+        <div class="collapse-control">
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <div class="header-collapsed header-mobile visible-xs">
+        <div class="logo">
+            <a href="#">
+                <img src="assets/image/logo-header-main.png" class="logo-main" />
+            </a>
+        </div>
+
+        <ul class="nav navbar-nav pull-right">
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown"><span class="icon menu tools"></span> <span class="text collapse menuCollapse"></span></a>
+                <ul class="dropdown-menu dropdown-menu-left">
+                    <li><a href="#"><span class="gpswoxicon alerts"></span>Alerts</a></li>
+                    <li><a href="#" class="menu-geofencing"><span class="gpswoxicon geofencing"></span>Geofencing</a></li>
+                    <li><a href="#" class="menu-routes"><span class="gpswoxicon routes"></span>Routes</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#reports-modal"><span class="gpswoxicon reports"></span>Reports</a></li>
+                    <li><a href="#"><span class="gpswoxicon ruler"></span>Ruler</a></li>
+                    <li><a href="#" class="menu-poi"><span class="gpswoxicon poi"></span>POI</a></li>
+                    <li><a href="#"><span class="gpswoxicon show-point"></span>Show Point</a></li>
+                    <li><a href="#"><span class="gpswoxicon send-command"></span>Send Command</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" data-toggle="modal" data-target="#setup-modal"><span class="icon menu gear"></span> <span class="text collapse menuCollapse"></span></a>
+            </li>
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown"><span class="icon menu account"></span> <span class="text collapse menuCollapse"></span></a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a href="#"><span class="gpswoxicon membership"></span> Membership</a></li>
+                    <li><a href="#"><span class="gpswoxicon my-icons"></span> My icons</a></li>
+                    <li><a href="#"><span class="gpswoxicon change-password"></span> Change password</a></li>
+                    <li><a href="#" class="menu-support"><span class="gpswoxicon support"></span> Support</a></li>
+                    <li><a href="#"><span class="gpswoxicon logout"></span> Logout</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" data-toggle="modal" data-target="#language-selection">
+                    <img src="assets/image/flags/gb.png" class="framed" />
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="modal-trigger">
+        <!-- Edit modal window, not sure if should be the same as setup -->
+        <a href="#" data-toggle="modal" data-target="#edit-modal"><span class="icon menu gear"></span> <span class="text">Edit Modal</span></a>
+        <a href="#" data-toggle="modal" data-target="#camera-photos-modal"><span class="icon menu gear"></span> <span class="text">Camera/Photos Modal</span></a>
+        <a href="/reports.html" ><span class="icon menu gear"></span> <span class="text">Reports Page</span></a>
+    </div>
+
+    <div class="body">
+        <div id="map"></div>
+        <div class="sidebar">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#objects" aria-controls="objects" role="tab" data-toggle="tab">Objects</a></li>
+                <li role="presentation" class=""><a href="#events" aria-controls="events" role="tab" data-toggle="tab">Events</a></li>
+                <li role="presentation" class=""><a href="#history" aria-controls="history" role="tab" data-toggle="tab">History</a></li>
+                <li role="presentation" class="hidden"><a href="#tools" aria-controls="tools" role="tab" data-toggle="tab">Tools</a></li>
+            </ul>
+
+            <div class="tab-content">
+
+                <div class="collapse-control" onclick="controlSidebar()">
+                    <a href="#"></a>
+                </div>
+                <!-- Objects -->
+                
+                <div role="tabpanel" class="tab-pane active" id="objects">
+                <div class="panel-body-header">
+                    <div class="searchbox">
+                        <i class="fa fa-search"></i>
+                        <input type="text" placeholder="Search" />
+                    </div>
+                    <div class="addbox">
+                        <a href="#">
+                            <span></span> Add device
+                        </a>
+                    </div>
+                </div>
+                <div class="sidebar_panel_wrap_for_scroll scrollbox">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <span class="panel-title">
+                                    <div class="checkbox checkbox-primary">
+                                        <input type="checkbox">
+                                        <label> <a role="button" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Ungrouped <span class="framed">7</span> <span class="status-icon"></span></a>
+                                        </label>
+                                    </div>
+                                </span>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+
+                                    <div class="object-container">
+                                        <ul>
+                                            <li class="li_pointer">
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status green"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>
+                                            </li>
+
+                                            <div class="moreinfo nonactive">
+                                                <div class="sub_moreinfo"><span> Altitude: </span> <span>70m</span></div>
+                                                <div class="sub_moreinfo"><span> Altitude: </span> <span>George</span></div>
+                                                <div class="sub_moreinfo"><span> Altitude: </span> <span>15%</span></div>
+                                                <div class="sub_moreinfo"><span> Altitude: </span> <span>aaaaaaaaaa</span></div>
+
+                                                <a href="#"><span class="collapse_button_moreinfo"> &#94; Collapse </span></a>
+                                                <div style="clear: both;"></div>
+                                            </div>
+                                            <li class="li_pointer">
+                                            
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status yellow"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>      
+                                            </li>
+
+                                            <li class="li_pointer">
+                                            
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status yellow"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>      
+                                            </li>
+
+                                            <li class="li_pointer">
+                                            
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status yellow"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>      
+                                            </li>
+
+                                            <li class="li_pointer">
+                                            
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status yellow"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>      
+                                            </li>
+
+                                            <li class="li_pointer">
+                                            
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status yellow"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>      
+                                            </li>
+
+                                            <li class="li_pointer">
+                                            
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status yellow"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>      
+                                            </li>
+
+                                            <li class="li_pointer">
+                                            
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status yellow"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>      
+                                            </li>
+
+                                            <li class="li_pointer">
+                                            
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status yellow"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>      
+                                            </li>
+                                            
+                                            <li class="li_pointer">
+                                            
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status yellow"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>      
+                                            </li>
+
+                                            <li class="li_pointer">
+                                            
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status yellow"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>      
+                                            </li>
+
+                                            <div class="moreinfo nonactive">
+                                                <div class="sub_moreinfo"><span> Altitude: </span> <span>70m</span></div>
+                                                <div class="sub_moreinfo"><span> Altitude: </span> <span>70m</span></div>
+                                                <div class="sub_moreinfo"><span> Altitude: </span> <span>70m</span></div>
+                                                <div class="sub_moreinfo"><span> Altitude: </span> <span>70m</span></div>
+                                                <a href="#"><span class="collapse_button_moreinfo"> &#94; Collapse </span></a>
+                                                <div style="clear: both;"></div>
+                                            </div>
+
+                                           
+                                            <li>
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status red"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>
+                                            </li>
+                                            <li>
+
+                                            
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status green"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status green"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status green"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status green"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status green"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status green"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status green"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status green"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status green"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status green"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status green"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status green"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status green"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status green"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox">
+                                                    <label></label>
+                                                </div>
+                                                <div class="details">
+                                                    <span class="object-status green"></span>GPS Device name
+                                                    <i>Last: 2000 00 00 00:00</i>
+                                                </div>
+                                                <div class="speed">
+                                                    <span class="framed">120 km/h</span>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="#"><span class="icon gear"></span></a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <span class="panel-title">
+                                    <div class="checkbox checkbox-primary">
+                                        <input type="checkbox">
+                                        <label> <a role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" class="collapsed">School Bus <span class="framed">7</span> <span class="status-icon"></span></a>
+                                        </label>
+                                    </div>
+                                </span>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    No content...
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab">
+                                <div class="panel-title">
+                                    <div class="checkbox checkbox-primary">
+                                        <input type="checkbox">
+                                        <label>
+                                            <a role="button" data-toggle="collapse" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree" class="collapsed">Trucks <span class="framed">3</span> <span class="status-icon"></span></a>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel">
+                                <div class="panel-body">
+                                    No content...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!-- Events -->
+                <div role="tabpanel" class="tab-pane" id="events">
+                    <div class="search">
+                       <button><i class="fa fa-search"></i></button>
+                        <div><input type="text" placeholder="Search" /></div>
+
+                    </div>
+                    <div class="event-list">
+                        <div class="event-list-header">
+                            <div class="time">Time</div>
+                            <div class="object">Object</div>
+                            <div class="event">Event</div>
+                        </div>
+                        <div class="scrollbox">
+                            <ul>
+                                <li>
+                                    <div class="time">21:16:11</div>
+                                    <div class="object">Car</div>
+                                    <div class="event">Zone in (Heywood)</div>
+                                </li>
+                                <li>
+                                    <div class="time">21:16:11</div>
+                                    <div class="object">Car</div>
+                                    <div class="event">Zone in (Heywood)</div>
+                                </li>
+                                <li>
+                                    <div class="time">21:16:11</div>
+                                    <div class="object">Car</div>
+                                    <div class="event">Zone in (Verylongcityname)</div>
+                                </li>
+                                <li>
+                                    <div class="time">21:16:11</div>
+                                    <div class="object">Car</div>
+                                    <div class="event">Zone in (Heywood)</div>
+                                </li>
+                                <li>
+                                    <div class="time">21:16:11</div>
+                                    <div class="object">Car</div>
+                                    <div class="event">Zone in (Heywood)</div>
+                                </li>
+                                <li>
+                                    <div class="time">21:16:11</div>
+                                    <div class="object">Car</div>
+                                    <div class="event">Zone in (Heywood)</div>
+                                </li>
+                                <li>
+                                    <div class="time">21:16:11</div>
+                                    <div class="object">Car</div>
+                                    <div class="event">Zone in (Heywood)</div>
+                                </li>
+                                <li>
+                                    <div class="time">21:16:11</div>
+                                    <div class="object">Car</div>
+                                    <div class="event">Zone in (Heywood)</div>
+                                </li>
+                                <li>
+                                    <div class="time">21:16:11</div>
+                                    <div class="object">Car</div>
+                                    <div class="event">Zone in (Heywood)</div>
+                                </li>
+                                <li>
+                                    <div class="time">21:16:11</div>
+                                    <div class="object">Car</div>
+                                    <div class="event">Zone in (Heywood)</div>
+                                </li>
+                                <li>
+                                    <div class="time">21:16:11</div>
+                                    <div class="object">Car</div>
+                                    <div class="event">Zone in (Heywood)</div>
+                                </li>
+                                <li>
+                                    <div class="time">21:16:11</div>
+                                    <div class="object">Car</div>
+                                    <div class="event">Zone in (Heywood)</div>
+                                </li>
+                                <li>
+                                    <div class="time">21:16:11</div>
+                                    <div class="object">Car</div>
+                                    <div class="event">Zone in (Heywood)</div>
+                                </li>
+                                <li>
+                                    <div class="time">21:16:11</div>
+                                    <div class="object">Car</div>
+                                    <div class="event">Zone in (Heywood)</div>
+                                </li>
+                                <li>
+                                    <div class="time">21:16:11</div>
+                                    <div class="object">Car</div>
+                                    <div class="event">Zone in (Heywood)</div>
+                                </li>
+                                <li>
+                                    <div class="time">21:16:11</div>
+                                    <div class="object">Car</div>
+                                    <div class="event">Zone in (Heywood)</div>
+                                </li>
+                                <li>
+                                    <div class="time">21:16:11</div>
+                                    <div class="object">Car</div>
+                                    <div class="event">Zone in (Heywood)</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="event-list-footer">
+                            <ul class="pagination">
+                                <li><a href="#"><i class="fa fa-chevron-left"></i> Back</a></li>
+                                <li><a href="#">1</a></li>
+                                <li class="active"><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li class="dots">...</li>
+                                <li><a href="#">Next <i class="fa fa-chevron-right"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- History -->
+                <div role="tabpanel" class="tab-pane" id="history">
+                    <div class="history-selection">
+                        <table>
+                            <tr>
+                                <td>Device:</td>
+                                <td colspan="2" class="dark-caret">
+                                    <select class="selectpicker primary">
+                                        <option selected>Truck</option>
+                                        <option>Car</option>
+                                        <option>Boat</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>From:</td>
+                                <td>
+                                    <input type="text" class="datepicker primary" value="2000/00/00">
+                                </td>
+                                <td>
+                                    <select class="selectpicker primary">
+                                        <option selected>00:00</option>
+                                        <option>01:00</option>
+                                        <option>02:00</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>To:</td>
+                                <td>
+                                    <input type="text" class="datepicker primary" value="2000/00/00">
+                                </td>
+                                <td>
+                                    <select class="selectpicker primary">
+                                        <option selected>00:00</option>
+                                        <option>01:00</option>
+                                        <option>02:00</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="options">
+                            <div class="checkbox checkbox-primary">
+                                <input type="checkbox">
+                                <label></label>
+                            </div>
+                            Snap to road
+                        </div>
+                        <div class="buttons">
+                            <button type="button" class="btn btn-green" id="show-history">Show history</button>
+                            <button type="button" class="btn btn-empty">Clear</button>
+                        </div>
+                    </div>
+                    <div class="history-results scrollbox">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Action</td>
+                                    <td>Date</td>
+                                    <td>Duration</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span class="action-icon white"><i class="fa fa-arrow-down"></i></span> START
+                                    </td>
+                                    <td class="date">
+                                        00:00:00
+                                        <span>2000-00-00</span>
+                                    </td>
+                                    <td class="duration">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="action-icon blue">D</span> DRIVE
+                                    </td>
+                                    <td class="date">
+                                        00:00:00
+                                        <span>2000-00-00</span>
+                                    </td>
+                                    <td class="duration">
+                                        <span class="framed">14min 57s</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="action-icon blue">D</span> DRIVE
+                                    </td>
+                                    <td class="date">
+                                        00:00:00
+                                        <span>2000-00-00</span>
+                                    </td>
+                                    <td class="duration">
+                                        <span class="framed">14min 57s</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                                                <tr>
+                                    <td>
+                                        <span class="action-icon blue">D</span> DRIVE
+                                    </td>
+                                    <td class="date">
+                                        00:00:00
+                                        <span>2000-00-00</span>
+                                    </td>
+                                    <td class="duration">
+                                        <span class="framed">14min 57s</span>
+                                    </td>
+                                </tr>
+                                                                <tr>
+                                    <td>
+                                        <span class="action-icon blue">D</span> DRIVE
+                                    </td>
+                                    <td class="date">
+                                        00:00:00
+                                        <span>2000-00-00</span>
+                                    </td>
+                                    <td class="duration">
+                                        <span class="framed">14min 57s</span>
+                                    </td>
+                                </tr>
+                                                                <tr>
+                                    <td>
+                                        <span class="action-icon blue">D</span> DRIVE
+                                    </td>
+                                    <td class="date">
+                                        00:00:00
+                                        <span>2000-00-00</span>
+                                    </td>
+                                    <td class="duration">
+                                        <span class="framed">14min 57s</span>
+                                    </td>
+                                </tr>
+                                    <td>
+                                        <span class="action-icon blue">D</span> DRIVE
+                                    </td>
+                                    <td class="date">
+                                        00:00:00
+                                        <span>2000-00-00</span>
+                                    </td>
+                                    <td class="duration">
+                                        <span class="framed">14min 57s</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="action-icon grey">P</span> PARK
+                                    </td>
+                                    <td class="date">
+                                        00:00:00
+                                        <span>2000-00-00</span>
+                                    </td>
+                                    <td class="duration">
+                                        <span class="framed">14min 57s</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="action-icon red">E</span> EVENT
+                                    </td>
+                                    <td class="date">
+                                        00:00:00
+                                        <span>2000-00-00</span>
+                                    </td>
+                                    <td class="duration">
+                                        <span class="framed">14min 57s</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="action-icon grey">P</span> PARK
+                                    </td>
+                                    <td class="date">
+                                        00:00:00
+                                        <span>2000-00-00</span>
+                                    </td>
+                                    <td class="duration">
+                                        <span class="framed">2h 14min 57s</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="action-icon white"><i class="fa fa-flag-o"></i></span> FINISH
+                                    </td>
+                                    <td class="date">
+                                        00:00:00
+                                        <span>2000-00-00</span>
+                                    </td>
+                                    <td class="duration">
+                                        <span class="framed total">Total:<br />2h 14min 57s</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Tools -->
+                <div role="tabpanel" class="tab-pane tab-tools" id="tools">
+                    <div class="panel-group" id="tools-accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <a href="#" class="btn btn-xs btn-default tools-close">
+                                    <span class="glyphicon glyphicon-chevron-left"></span> Close tools
+                                </a>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab">
+                                <div class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#tools-accordion" href="#tools-collapse-1" aria-expanded="true" aria-controls="tools-collapse-1">
+                                        <i class="gpswoxicon geofencing"></i>
+                                        <span class="tools-heading">Geofencing</span>
+                                        <span class="status-icon"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="tools-collapse-1" class="panel-collapse collapse in" role="tabpanel">
+                                <div class="panel-body">
+                                    <div class="panel-body-header">
+                                        <div class="searchbox">
+                                            <i class="fa fa-search"></i>
+                                            <input type="text" placeholder="Search" />
+                                        </div>
+                                        <div class="addbox">
+                                            <a href="#">
+                                                <span></span> Add new
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="object-container scrollbox">
+                                        <ul>
+                                            <li>
+                                                <div class="details">Zone in (Heywood)</div>
+                                                <div class="edit" data-toggle="popover" data-container=".tab-tools" data-placement="auto" data-html="true" data-content="<div><a href='#'>Edit</a></div><div><a href='#'>Remove</a></div>">
+                                                    <a href="#">
+                                                        <span class="icon gear"></span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone out (Heywood)</div>
+                                                <div class="edit" data-toggle="popover" data-container=".tab-tools" data-placement="auto" data-html="true" data-content="<div><a href='#'>Edit</a></div><div><a href='#'>Remove</a></div>">
+                                                    <a href="#">
+                                                        <span class="icon gear"></span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone in (Babbenhaus...</div>
+                                                <div class="edit" data-toggle="popover" data-container=".tab-tools" data-placement="auto" data-html="true" data-content="<div><a href='#'>Edit</a></div><div><a href='#'>Remove</a></div>">
+                                                    <a href="#">
+                                                        <span class="icon gear"></span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone out (Babbenhaus...</div>
+                                                <div class="edit" data-toggle="popover" data-container=".tab-tools" data-placement="auto" data-html="true" data-content="<div><a href='#'>Edit</a></div><div><a href='#'>Remove</a></div>">
+                                                    <a href="#">
+                                                        <span class="icon gear"></span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone in (Heywood)</div>
+                                                <div class="edit" data-toggle="popover" data-container=".tab-tools" data-placement="auto" data-html="true" data-content="<div><a href='#'>Edit</a></div><div><a href='#'>Remove</a></div>">
+                                                    <a href="#">
+                                                        <span class="icon gear"></span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone out (Heywood)</div>
+                                                <div class="edit" data-toggle="popover" data-container=".tab-tools" data-placement="auto" data-html="true" data-content="<div><a href='#'>Edit</a></div><div><a href='#'>Remove</a></div>">
+                                                    <a href="#">
+                                                        <span class="icon gear"></span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone in (Babbenhaus...</div>
+                                                <div class="edit" data-toggle="popover" data-container=".tab-tools" data-placement="auto" data-html="true" data-content="<div><a href='#'>Edit</a></div><div><a href='#'>Remove</a></div>">
+                                                    <a href="#">
+                                                        <span class="icon gear"></span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone out (Babbenhaus...</div>
+                                                <div class="edit" data-toggle="popover" data-container=".tab-tools" data-placement="auto" data-html="true" data-content="<div><a href='#'>Edit</a></div><div><a href='#'>Remove</a></div>">
+                                                    <a href="#">
+                                                        <span class="icon gear"></span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone in (Heywood)</div>
+                                                <div class="edit" data-toggle="popover" data-container=".tab-tools" data-placement="auto" data-html="true" data-content="<div><a href='#'>Edit</a></div><div><a href='#'>Remove</a></div>">
+                                                    <a href="#">
+                                                        <span class="icon gear"></span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone out (Heywood)</div>
+                                                <div class="edit" data-toggle="popover" data-container=".tab-tools" data-placement="auto" data-html="true" data-content="<div><a href='#'>Edit</a></div><div><a href='#'>Remove</a></div>">
+                                                    <a href="#">
+                                                        <span class="icon gear"></span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone in (Babbenhaus...</div>
+                                                <div class="edit" data-toggle="popover" data-container=".tab-tools" data-placement="auto" data-html="true" data-content="<div><a href='#'>Edit</a></div><div><a href='#'>Remove</a></div>">
+                                                    <a href="#">
+                                                        <span class="icon gear"></span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone out (Babbenhaus...</div>
+                                                <div class="edit" data-toggle="popover" data-container=".tab-tools" data-placement="auto" data-html="true" data-content="<div><a href='#'>Edit</a></div><div><a href='#'>Remove</a></div>">
+                                                    <a href="#">
+                                                        <span class="icon gear"></span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone in (Heywood)</div>
+                                                <div class="edit" data-toggle="popover" data-container=".tab-tools" data-placement="auto" data-html="true" data-content="<div><a href='#'>Edit</a></div><div><a href='#'>Remove</a></div>">
+                                                    <a href="#">
+                                                        <span class="icon gear"></span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone out (Heywood)</div>
+                                                <div class="edit" data-toggle="popover" data-container=".tab-tools" data-placement="auto" data-html="true" data-content="<div><a href='#'>Edit</a></div><div><a href='#'>Remove</a></div>">
+                                                    <a href="#">
+                                                        <span class="icon gear"></span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone in (Babbenhaus...</div>
+                                                <div class="edit" data-toggle="popover" data-container=".tab-tools" data-placement="auto" data-html="true" data-content="<div><a href='#'>Edit</a></div><div><a href='#'>Remove</a></div>">
+                                                    <a href="#">
+                                                        <span class="icon gear"></span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone out (Babbenhaus...</div>
+                                                <div class="edit" data-toggle="popover" data-container=".tab-tools" data-placement="auto" data-html="true" data-content="<div><a href='#'>Edit</a></div><div><a href='#'>Remove</a></div>">
+                                                    <a href="#">
+                                                        <span class="icon gear"></span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone in (Heywood)</div>
+                                                <div class="edit" data-toggle="popover" data-container=".tab-tools" data-placement="auto" data-html="true" data-content="<div><a href='#'>Edit</a></div><div><a href='#'>Remove</a></div>">
+                                                    <a href="#">
+                                                        <span class="icon gear"></span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone out (Heywood)</div>
+                                                <div class="edit" data-toggle="popover" data-container=".tab-tools" data-placement="auto" data-html="true" data-content="<div><a href='#'>Edit</a></div><div><a href='#'>Remove</a></div>">
+                                                    <a href="#">
+                                                        <span class="icon gear"></span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone in (Babbenhaus...</div>
+                                                <div class="edit" data-toggle="popover" data-container=".tab-tools" data-placement="auto" data-html="true" data-content="<div><a href='#'>Edit</a></div><div><a href='#'>Remove</a></div>">
+                                                    <a href="#">
+                                                        <span class="icon gear"></span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone out (Babbenhaus...</div>
+                                                <div class="edit" data-toggle="popover" data-container=".tab-tools" data-placement="auto" data-html="true" data-content="<div><a href='#'>Edit</a></div><div><a href='#'>Remove</a></div>">
+                                                    <a href="#">
+                                                        <span class="icon gear"></span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab">
+                                <span class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#tools-accordion" href="#tools-collapse-2" aria-expanded="true" aria-controls="tools-collapse-2" class="collapsed">
+                                        <i class="gpswoxicon routes"></i>
+                                        <span class="tools-heading">Routes</span>
+                                        <span class="status-icon"></span>
+                                    </a>
+                                </span>
+                            </div>
+                            <div id="tools-collapse-2" class="panel-collapse collapse" role="tabpanel">
+                                <div class="panel-body">
+                                    <div class="panel-body-header">
+                                        <div class="searchbox">
+                                            <i class="fa fa-search"></i>
+                                            <input type="text" placeholder="Search" />
+                                        </div>
+                                        <div class="addbox">
+                                            <a href="#">
+                                                <span></span> Add new
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="object-container scrollbox">
+                                        <ul>
+                                            <li>
+                                                <div class="details">Zone in (Heywood)</div>
+                                                <div class="edit"><a href="#"><span class="icon gear"></span></a></div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone out (Heywood)</div>
+                                                <div class="edit"><a href="#"><span class="icon gear"></span></a></div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone in (Babbenhaus...</div>
+                                                <div class="edit"><a href="#"><span class="icon gear"></span></a></div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone out (Babbenhaus...</div>
+                                                <div class="edit"><a href="#"><span class="icon gear"></span></a></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab">
+                                <div class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#tools-accordion" href="#tools-collapse-3" aria-expanded="true" aria-controls="tools-collapse-3" class="collapsed">
+                                        <i class="gpswoxicon poi"></i>
+                                        <span class="tools-heading">POI</span>
+                                        <span class="status-icon"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="tools-collapse-3" class="panel-collapse collapse" role="tabpanel">
+                                <div class="panel-body">
+                                    <div class="panel-body-header">
+                                        <div class="searchbox">
+                                            <i class="fa fa-search"></i>
+                                            <input type="text" placeholder="Search" />
+                                        </div>
+                                        <div class="addbox">
+                                            <a href="#">
+                                                <span></span> Add new
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="object-container scrollbox">
+                                        <ul>
+                                            <li>
+                                                <div class="details">Zone in (Heywood)</div>
+                                                <div class="edit"><a href="#"><span class="icon gear"></span></a></div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone out (Heywood)</div>
+                                                <div class="edit"><a href="#"><span class="icon gear"></span></a></div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone in (Babbenhaus...</div>
+                                                <div class="edit"><a href="#"><span class="icon gear"></span></a></div>
+                                            </li>
+                                            <li>
+                                                <div class="details">Zone out (Babbenhaus...</div>
+                                                <div class="edit"><a href="#"><span class="icon gear"></span></a></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-table">
+        <div class="collapse-control">
+                <a href="#"></a>
+        </div>
+            <ul class="main-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#datalog" aria-controls="datalog" role="tab" data-toggle="tab"><i class="fa fa-reorder"></i> Data Log</a></li>
+                <li role="presentation"><a href="#graph" aria-controls="graph" role="tab" data-toggle="tab"><i class="fa fa-line-chart"></i> Graph</a></li>
+            </ul>
+            <div class="main-close">
+                <a href="#">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+            <div class="tab-content footer-table-content">
+                <div role="tabpanel" class="tab-pane" id="graph">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#altitude" aria-controls="altitude" role="tab" data-toggle="tab">Altitude</a></li>
+                        <li role="presentation"><a href="#speed" aria-controls="speed" role="tab" data-toggle="tab">Speed</a></li>
+                        <li role="presentation"><a href="#fuel" aria-controls="fuel" role="tab" data-toggle="tab">Fuel</a></li>
+                        <li role="presentation"><a href="#acceleration" aria-controls="acceleration" role="tab" data-toggle="tab">Acceleration</a></li>
+                        <li role="presentation"><a href="#break" aria-controls="break" role="tab" data-toggle="tab">Break</a></li>
+                        <li role="presentation"><a href="#downtime" aria-controls="downtime" role="tab" data-toggle="tab">Downtime</a></li>
+                    </ul>
+                    <div class="tab-content data-area">
+                        <div class="collapse-control">
+                            <a href="#"></a>
+                        </div>
+                        <div role="tabpanel" class="tab-pane active" id="altitude">
+                            <div class="graph-1-wrap">
+                                <div class="graph-1"></div>
+                                <div class="graph-1-controls">
+                                    <a href="#" class="btn btn-xs btn-default graph-zoom-in"><i class="fa fa-plus"></i></a>
+                                    <br>
+                                    <a href="#" class="btn btn-xs btn-default graph-zoom-out margin-top-3"><i class="fa fa-minus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane active" id="datalog">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#altitude" aria-controls="altitude" role="tab" data-toggle="tab">Altitude</a></li>
+                    </ul>
+                    <div class="data-area">
+                        <div class="graph-data-table scrollbox">
+                            <table class=" table">
+                                <thead>
+                                  <tr>
+                                    <th>Time</th>
+                                    <th>Latitude</th>
+                                    <th>Longitude</th>
+                                    <th>Altitude</th>
+                                    <th>Speed</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>2015-05-30 09:00:41</td>
+                                    <td><script>document.write(Math.random() * 100);</script></td>
+                                    <td><script>document.write(Math.random() * 100);</script></td>
+                                    <td><script>document.write(Math.floor(Math.random() * 100));</script> km</td>
+                                    <td><script>document.write(Math.floor(Math.random() * 100));</script> kph</td>
+                                  </tr>
+                                  <tr>
+                                    <td>2015-05-30 09:00:59</td>
+                                    <td><script>document.write(Math.random() * 100);</script></td>
+                                    <td><script>document.write(Math.random() * 100);</script></td>
+                                    <td><script>document.write(Math.floor(Math.random() * 100));</script> km</td>
+                                    <td><script>document.write(Math.floor(Math.random() * 100));</script> kph</td>
+                                  </tr>
+                                  <tr>
+                                    <td>2015-05-30 09:01:23</td>
+                                    <td><script>document.write(Math.random() * 100);</script></td>
+                                    <td><script>document.write(Math.random() * 100);</script></td>
+                                    <td><script>document.write(Math.floor(Math.random() * 100));</script> km</td>
+                                    <td><script>document.write(Math.floor(Math.random() * 100));</script> kph</td>
+                                  </tr>
+                                  <tr>
+                                    <td>2015-05-30 09:01:47</td>
+                                    <td><script>document.write(Math.random() * 100);</script></td>
+                                    <td><script>document.write(Math.random() * 100);</script></td>
+                                    <td><script>document.write(Math.floor(Math.random() * 100));</script> km</td>
+                                    <td><script>document.write(Math.floor(Math.random() * 100));</script> kph</td>
+                                  </tr>
+                                  <tr>
+                                    <td>2015-05-30 09:02:06</td>
+                                    <td><script>document.write(Math.random() * 100);</script></td>
+                                    <td><script>document.write(Math.random() * 100);</script></td>
+                                    <td><script>document.write(Math.floor(Math.random() * 100));</script> km</td>
+                                    <td><script>document.write(Math.floor(Math.random() * 100));</script> kph</td>
+                                  </tr>
+                                  <tr>
+                                    <td>2015-05-30 09:02:32</td>
+                                    <td><script>document.write(Math.random() * 100);</script></td>
+                                    <td><script>document.write(Math.random() * 100);</script></td>
+                                    <td><script>document.write(Math.floor(Math.random() * 100));</script> km</td>
+                                    <td><script>document.write(Math.floor(Math.random() * 100));</script> kph</td>
+                                  </tr>
+                                  <tr>
+                                    <td>2015-05-30 09:02:51</td>
+                                    <td><script>document.write(Math.random() * 100);</script></td>
+                                    <td><script>document.write(Math.random() * 100);</script></td>
+                                    <td><script>document.write(Math.floor(Math.random() * 100));</script> km</td>
+                                    <td><script>document.write(Math.floor(Math.random() * 100));</script> kph</td>
+                                  </tr>
+                                  <tr>
+                                    <td>2015-05-31 09:03:15</td>
+                                    <td><script>document.write(Math.random() * 100);</script></td>
+                                    <td><script>document.write(Math.random() * 100);</script></td>
+                                    <td><script>document.write(Math.floor(Math.random() * 100));</script> km</td>
+                                    <td><script>document.write(Math.floor(Math.random() * 100));</script> kph</td>
+                                  </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="graph-data-pagination">
+                            <ul class="pagination">
+                                <li><a href="#"><i class="fa fa-chevron-left"></i> Back</a></li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li class="dots">...</li>
+                                <li><a href="#">Next <i class="fa fa-chevron-right"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Map zoom in/out icons -->
+<div id="map-controls">
+    <div id="map-zoom-options">
+		<a href="#" class="normal-map enlarge"><img src="assets/image/enlarge-ico.png" /></a>
+        <a href="#" class="normal-map"><img src="assets/image/map_icon2.png" /></a>
+        <a href="#" class="map-zoom-in"><i class="fa fa-plus"></i></a>
+        <a href="#" class="map-zoom-out"><i class="fa fa-minus"></i></a>
+    </div>
+
+    <!-- Map view selection -->
+    
+    <div class="map-view-block">
+    <div class="collapse-control-view-options">
+        <a href="#">
+        </a>
+    </div>
+    <ul id="map-view-options">
+        <li>
+            <div class="checkbox">
+                <input type="checkbox">
+                <label>
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Objects</a>
+                </label>
+            </div>
+        </li>
+        <li>
+            <div class="checkbox">
+                <input type="checkbox">
+                <label>
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Geofences</a>
+                </label>
+            </div>
+        </li>
+        <li>
+            <div class="checkbox">
+                <input type="checkbox">
+                <label>
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">POI</a>
+                </label>
+            </div>
+        </li>
+        <li>
+            <div class="checkbox">
+                <input type="checkbox">
+                <label>
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Live traffic</a>
+                </label>
+            </div>
+        </li>
+    </ul>
+    </div>
+</div>
+
+<!-- Support popup -->
+<div id="support-popup">
+    <button type="button" class="close" id="support-close"><span aria-hidden="true">&times;</span></button>
+    <div class="support-main">
+        <button type="button" class="btn btn-primary">Use all features. Upgrade membership</button>
+    </div>
+    <div class="support-separator">
+        <button type="button" class="btn btn-secondary">Read Users Manual</button>
+        <button type="button" class="btn btn-secondary">Questions? Get in touch</button>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="language-selection" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <p class="modal-title" id="myModalLabel">Select language</p>
+      </div>
+      <div class="modal-body">
+      <ul>
+          <li>
+               <a href="#"><img src="assets/image/flags/gb.png" />Arabic</a>
+          </li>
+          <li>
+               <a href="#"><img src="assets/image/flags/gb.png" />Arabic</a>
+          </li>
+          <li>
+               <a href="#"><img src="assets/image/flags/gb.png" />Arabic</a>
+          </li>
+          <li>
+               <a href="#"><img src="assets/image/flags/gb.png" />Arabic</a>
+          </li>
+          <li>
+               <a href="#"><img src="assets/image/flags/gb.png" />Arabic</a>
+          </li>
+          <li>
+               <a href="#"><img src="assets/image/flags/gb.png" />Arabic</a>
+          </li>
+          <li>
+               <a href="#"><img src="assets/image/flags/gb.png" />Arabic</a>
+          </li>
+          <li>
+               <a href="#"><img src="assets/image/flags/gb.png" />Arabic</a>
+          </li>
+          <li>
+               <a href="#"><img src="assets/image/flags/gb.png" />Arabic</a>
+          </li>
+          <li>
+               <a href="#"><img src="assets/image/flags/gb.png" />Arabic</a>
+          </li>
+          <li>
+               <a href="#"><img src="assets/image/flags/gb.png" />Arabic</a>
+          </li>
+          <li>
+               <a href="#"><img src="assets/image/flags/gb.png" />Arabic</a>
+          </li>
+          <li>
+               <a href="#"><img src="assets/image/flags/gb.png" />Arabic</a>
+          </li>
+          <li>
+               <a href="#"><img src="assets/image/flags/gb.png" />Arabic</a>
+          </li>
+          <li>
+               <a href="#"><img src="assets/image/flags/gb.png" />Arabic</a>
+          </li>
+          <li>
+               <a href="#"><img src="assets/image/flags/gb.png" />Arabic</a>
+          </li>
+          <li>
+               <a href="#"><img src="assets/image/flags/gb.png" />Arabic</a>
+          </li>
+          <li>
+               <a href="#"><img src="assets/image/flags/gb.png" />Arabic</a>
+          </li>
+      </ul>
+      <p>Coming soon</p>
+          <ul>
+              <li>
+                   <a href="#" class="disabled"><img src="assets/image/flags/gb.png" />Arabic</a>
+              </li>
+              <li>
+                   <a href="#" class="disabled"><img src="assets/image/flags/gb.png" />Arabic</a>
+              </li>
+              <li>
+                   <a href="#" class="disabled"><img src="assets/image/flags/gb.png" />Arabic</a>
+              </li>
+              <li>
+                   <a href="#" class="disabled"><img src="assets/image/flags/gb.png" />Arabic</a>
+              </li>
+            </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Reports Modal -->
+<div class="modal fade" id="reports-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <span class="modal-header-icon report-bars"></span>
+            <p class="modal-title">Reports</p>
+        </div>
+        <div class="modal-body">
+            <ul class="nav nav-tabs modal-nav" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#reports-modal-main" aria-controls="main" role="tab" data-toggle="tab">Main</a>
+                </li>
+                <li role="presentation">
+                    <a href="#reports-modal-generated-reports" aria-controls="icons" role="tab" data-toggle="tab">Generated reports</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+
+                <div class="collapse-control">
+                    <a href="#"></a>
+                </div>
+
+                <div role="tabpanel" class="tab-pane active" id="reports-modal-main">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="modal-input-group">
+                                <label>Title</label>
+                                <input class="text-input" type="text" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="modal-input-group">
+                                <label>Type</label>
+                                <select class="selectpicker primary">
+                                    <option selected>General Info</option>
+                                    <option>Other Info</option>
+                                    <option>All Info</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="modal-input-group">
+                                <label>Format</label>
+                                <select class="selectpicker primary">
+                                    <option selected>HTML</option>
+                                    <option>PDF</option>
+                                    <option>TEXT</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="section-line">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <table>
+                                <tr>
+                                    <td>Date from:</td>
+                                    <td>
+                                        <input type="text" class="datepicker primary" value="2015-12-01">
+                                    </td>
+                                    <td>
+                                        <select class="selectpicker primary">
+                                            <option selected>00:00</option>
+                                            <option>01:00</option>
+                                            <option>02:00</option>
+                                            <option>03:00</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Date to:</td>
+                                    <td>
+                                        <input type="text" class="datepicker primary" value="2015-12-02">
+                                    </td>
+                                    <td>
+                                        <select class="selectpicker primary">
+                                            <option selected>00:00</option>
+                                            <option>01:00</option>
+                                            <option>02:00</option>
+                                            <option>03:00</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="modal-input-group">
+                                <div class="radio">
+                                    <input type="radio" name="radioTime" id="radioTime1" value="today" cheked="checked">
+                                    <label for="radioTime1">
+                                      Today
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="modal-input-group">
+                                <div class="radio">
+                                    <input type="radio" name="radioTime" id="radioTime2" value="month">
+                                    <label for="radioTime2">
+                                      Last month
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="modal-input-group">
+                                <div class="radio">
+                                    <input type="radio" name="radioTime" id="radioTime3" value="week">
+                                    <label for="radioTime3">
+                                      Last week
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="modal-input-group">
+                                <div class="radio">
+                                    <input type="radio" name="radioTime" id="radioTime4" value="months">
+                                    <label for="radioTime4">
+                                      Last 3 months
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="section-line">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="modal-input-group">
+                                <label>Devices</label>
+                                <select class="selectpicker primary">
+                                    <option selected>Choose from the list</option>
+                                    <option>Computer</option>
+                                    <option>Tablet</option>
+                                    <option>Phone</option>
+                                </select>
+                            </div>
+                            <hr class="section-line">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="modal-input-group">
+                                <label>Geofences</label>
+
+                                <div class="btn-group bootstrap-select primary reports-dropdown">
+                                    <button class="btn dropdown-toggle btn-default" type="button" id="dropdownGeofences" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        <span class="filter-option pull-left">Choose from the list</span>
+                                        <span class="caret"></span>
+                                    </button>
+
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownGeofences">
+                                        <section class="scrollbox">
+                                            <li>
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="geofences1" name="reportsGeofences[]">
+                                                    <label for="geofences1">Objects</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="geofences2" name="reportsGeofences[]">
+                                                    <label for="geofences2">Geofences</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="geofences3" name="reportsGeofences[]">
+                                                    <label for="geofences3">POI</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="geofences4" name="reportsGeofences[]">
+                                                    <label for="geofences4">Live traffic</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="geofences5" name="reportsGeofences[]">
+                                                    <label for="geofences5">Objects</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="geofences6" name="reportsGeofences[]">
+                                                    <label for="geofences6">Objects</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="geofences7" name="reportsGeofences[]">
+                                                    <label for="geofences7">Objects</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="geofences8" name="reportsGeofences[]">
+                                                    <label for="geofences8">Objects</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="geofences9" name="reportsGeofences[]">
+                                                    <label for="geofences9">Objects</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="geofences10" name="reportsGeofences[]">
+                                                    <label for="geofences10">Objects</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="geofences11" name="reportsGeofences[]">
+                                                    <label for="geofences11">Objects</label>
+                                                </div>
+                                            </li>
+                                        </section>
+                                        <li class="done">
+                                            <div class="btn-group text-center">
+                                                <a href="#" class="btn btn-main close-dropdown">Done</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <hr class="section-line">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="modal-input-group">
+                                <label>Send to email</label>
+                                <input class="text-input" type="email" placeholder="example@example" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="modal-input-group">
+                                <label>Speed limit kph</label>
+                                <input class="text-input" type="text" placeholder="60" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="modal-input-group">
+                                <label>Stops</label>
+                                <select class="selectpicker primary">
+                                    <option selected>> 1 min.</option>
+                                    <option>> 5 min.</option>
+                                    <option>> 10 min.</option>
+                                    <option>> 15 min.</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="modal-input-group">
+                                <div class="radio">
+                                    <input type="radio" name="radioEmail" id="radioEmail1" value="daily">
+                                    <label for="radioTime3">
+                                      Daily
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="modal-input-group">
+                                <div class="radio">
+                                    <input type="radio" name="radioEmail" id="radioEmail2" value="weekly">
+                                    <label for="radioTime3">
+                                      Weekly
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="modal-input-group">
+                                <div class="radio">
+                                    <input type="radio" name="radioShow" id="radioShow1" value="address">
+                                    <label for="radioTime3">
+                                      Show addresses
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="modal-input-group">
+                                <div class="radio">
+                                    <input type="radio" name="radioShow" id="radioShow2" value="zones">
+                                    <label for="radioTime3">
+                                      Show zones
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="reports-modal-generated-reports">
+                    <p>Generated Reports</p>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="buttons text-left">
+                <button type="button" class="btn btn-main">Generate</button>
+                <button type="button" class="btn btn-side">Save</button>
+                <button type="button" class="btn btn-side">New</button>
+                <button type="button" class="btn btn-side">Cancel</button>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="edit-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <span class="modal-header-icon gear-icon-blue"></span><p class="modal-title">Edit</p>
+        </div>
+        <div class="modal-body">
+            <ul class="nav nav-tabs modal-nav" role="tablist">
+                <li role="presentation" class="active"><a href="#edit-main" aria-controls="main" role="tab" data-toggle="tab">Main</a></li>
+                <li role="presentation"><a href="#edit-icons" aria-controls="icons" role="tab" data-toggle="tab">Icons</a></li>
+                <li role="presentation"><a href="#edit-advanced" aria-controls="advanced" role="tab" data-toggle="tab">Advanced</a></li>
+                <li role="presentation"><a href="#edit-sensors" aria-controls="sensors" role="tab" data-toggle="tab">Sensors</a></li>
+                <li role="presentation"><a href="#edit-services" aria-controls="services" role="tab" data-toggle="tab">Services</a></li>
+                <li role="presentation"><a href="#edit-accuracy" aria-controls="accuracy" role="tab" data-toggle="tab">Accuracy</a></li>
+                <li role="presentation"><a href="#edit-tail" aria-controls="tail" role="tab" data-toggle="tab">Tail</a></li>
+            </ul>
+            <div class="tab-content">
+
+                <div class="collapse-control">
+                    <a href="#"></a>
+                </div>
+                <div role="tabpanel" class="tab-pane active" id="edit-main">
+                    <div class="modal-input-group">
+                        <label>Name*</label>
+                        <input class="text-input" type="text" placeholder="" />
+                    </div>
+                    <div class="modal-input-group">
+                        <label>IMEI or Device Identifier*</label>
+                        <input class="text-input" type="text" placeholder="" />
+                    </div>
+                    <div class="modal-input-group">
+                        <label>Group*</label>
+                        <select class="selectpicker primary">
+                            <option selected>Select Group</option>
+                            <option>Something</option>
+                            <option>Something Else</option>
+                        </select>
+                    </div>
+                    <hr class="section-line">
+                    <div class="add-field">
+                        <i class="add-field-btn fa fa-plus-square fa-1"></i><label>Add Sensor</label>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Sensor name</th>
+                                <th>Sensor type</th>
+                                <th colspan="2"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>TANK_1</td>
+                                <td>Fuel tank</td>
+                                <td class="center"><a href="#"><div class="gear-icon"></div></a></span></td>
+                                <td class="center"><button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></td>
+                            </tr>
+                            <tr>
+                                <td>TANK_26</td>
+                                <td>Oil tank</td>
+                                <td class="center"><a href="#"><div class="gear-icon"></div></a></td>
+                                <td class="center"><button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="edit-icons">
+                    <p>icons</p>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="edit-advanced">
+                    <p>advanced</p>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="edit-sensors">
+                    <p>sensors</p>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="edit-services">
+                    <p>services</p>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="edit-accuracy">
+                    <p>accuracy</p>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="edit-tail">
+                    <p>tail</p>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="buttons">
+                <button type="button" class="btn btn-main">Save</button>
+                <button type="button" class="btn btn-side">Cancel</button>
+                <button type="button" class="btn btn-side">Delete</button>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal custom-modal fade" id="setup-modal" tabindex="-1" role="dialog" aria-labelledby="setupModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <span class="modal-header-icon gear-icon-blue"></span><p class="modal-title" id="setupModalLabel">Setup</p>
+        </div>
+        <div class="modal-body">
+            <ul class="nav nav-tabs modal-nav" role="tablist">
+                <li role="presentation"><a href="#setup-main" aria-controls="main" role="tab" data-toggle="tab">Main</a></li>
+                <li role="presentation"><a href="#setup-icons" aria-controls="icons" role="tab" data-toggle="tab">Icons</a></li>
+                <li role="presentation"><a href="#setup-advanced" aria-controls="advanced" role="tab" data-toggle="tab">Advanced</a></li>
+                <li role="presentation" class="active"><a href="#setup-sms-gateway" aria-controls="sensors" role="tab" data-toggle="tab">SMS gateway</a></li>
+                <li role="presentation"><a href="#setup-services" aria-controls="services" role="tab" data-toggle="tab">Services</a></li>
+                <li role="presentation"><a href="#setup-accuracy" aria-controls="accuracy" role="tab" data-toggle="tab">Accuracy</a></li>
+                <li role="presentation"><a href="#setup-tail" aria-controls="tail" role="tab" data-toggle="tab">Tail</a></li>
+            </ul>
+            <div class="tab-content">
+
+                <div class="collapse-control">
+                    <a href="#"></a>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="setup-main">
+                    <p>main</p>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="setup-icons">
+                    <p>icons</p>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="setup-advanced">
+                    <p>advanced</p>
+                </div>
+                <div role="tabpanel" class="tab-pane active" id="setup-sms-gateway">
+                    <hr>
+                    <div class="checkbox checkbox-primary modal-input-group">
+                        <input id="sms-gateway-enable" type="checkbox" checked>
+                        <label class="checkbox-label" for="sms-gateway-enable">Enable SMS gateway</label>
+                    </div>
+                    <hr>
+                    <div class="modal-input-group">
+                        <label>Request Method</label>
+                        <select class="selectpicker primary">
+                            <option selected>SMS gateway app</option>
+                            <option>Some other method</option>
+                            <option>Even other method</option>
+                        </select>
+                    </div>
+                    <div class="section-block">
+                        <p>SMS in queue: <span>0</span></p>
+                        <p>AI last connection on: <span>2015-10-05</span></p>
+                        <p>If SMS gateway doesn't send SMS in <span>24</span> hours, it will be deleted from the queue.</p>
+                        <div class="buttons">
+                            <button type="button" class="btn btn-side">Clear queue</button>
+                            <button type="button" class="btn btn-side">Send test SMS</button>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="setup-services">
+                    <p>services</p>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="setup-accuracy">
+                    <p>accuracy</p>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="setup-tail">
+                    <p>tail</p>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="buttons">
+                <button type="button" class="btn btn-main">Save</button>
+                <button type="button" class="btn btn-side">Cancel</button>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="small-custom-modal modal modal-sm fade" id="gps-device-modal" tabindex="-1" role="dialog">
+    <div class="minimize-modal-container">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="small-modal-header">
+                    <ul class="nav nav-tabs small-modal-nav" role="tablist">
+                        <li role="presentation" class="title">GPS Device Name</li>
+                        <li data-toggle="tooltip" data-placement="top" title="Close"><a href="#" data-dismiss="modal"><i class="fa fa-times fa-1"></i></a></li>
+                        <li data-toggle="tooltip" data-placement="top" title="Parameters" role="presentation" class="active"><a href="#gps-device-parameters" aria-controls="gps-device-parameters" role="tab" data-toggle="tab"><i class="fa fa-bars fa-1"></i></a></li>
+                        <li data-toggle="tooltip" data-placement="top" title="Google Street View" role="presentation"><a href="#gps-device-street-view" aria-controls="gps-device-street-view" role="tab" data-toggle="tab"><i class="fa fa-road fa-1"></i></a></li>
+                        <li data-toggle="tooltip" data-placement="top" title="Take Photo" role="presentation"><a href="#gps-device-take-photo" aria-controls="gps-device-take-photo" role="tab" data-toggle="tab"><i class="fa fa-camera fa-1"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content">
+                    <div class="collapse-control">
+                        <a href="#"></a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="gps-device-take-photo">
+                         <div class="main-img-container">
+                            <img class="small-img" alt="Street view" src="assets/image/street-view-demo.jpg">
+                        </div>
+                        <div class="buttons">
+                            <button class="btn btn-left btn-narrow" type="button" class="btn btn-narrow">Take photo</button>
+                            <button class="btn btn-right btn-narrow" type="button" class="btn btn-narrow">Show galery</button>
+                        </div>
+                        <div class="checkbox checkbox-primary modal-input-group">
+                            <input id="auto-take-photo" type="checkbox" checked>
+                            <label class="checkbox-label" for="auto-take-photo">Take photo every <span class="auto-take-photo-time">1 hour</span></label>
+                            <div class="dropdown custom-dropdown auto-take-photo-dropdown">
+                              <span id="autoTakePhotoDropdownMenu" class="dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <i class="fa fa-cog"></i>
+                              </span>
+                              <ul class="dropdown-menu" aria-labelledby="autoTakePhotoDropdownMenu">
+                                  <div class="arrow-outer"></div>
+                                  <div class="arrow-inner"></div>
+                                <li><a href="#">5 min</a></li>
+                                <li><a href="#">30 min</a></li>
+                                <li><a href="#">1 hour</a></li>
+                                <li><a href="#">24 hours</a></li>
+                              </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="gps-device-street-view">
+                        <div class="main-img-container">
+                            <img class="small-img" alt="Street view" src="assets/image/street-view-demo.jpg">
+                        </div>
+                        <div class="buttons buttons-right">
+                            <button class="btn-enlarge btn btn-narrow" type="button" class="btn btn-narrow">Enlarge <i class="fa fa-expand fa-1"></i></button>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane active" id="gps-device-parameters">
+                        <table class="info-table">
+                            <tr class="main-params">
+                                <th>Address:</th>
+                                <td>Bitininkų g. 1A, Vilnius 08306, Lithuania</td>
+                            </tr>
+                            <tr class="main-params">
+                                <th>Position:</th>
+                                <td>54.7364589&deg;, 25.2778633&deg;</td>
+                            </tr>
+                            <tr>
+                                <th>Time:</th>
+                                <td>2014-05-30 09:58:13</td>
+                            </tr>
+                            <tr class="side-params">
+                                <th>Attitude:</th>
+                                <td>133m</td>
+                            </tr>
+                            <tr class="side-params">
+                                <th>Angle:</th>
+                                <td>40 &deg;</td>
+                            </tr>
+                            <tr class="side-params">
+                                <th>Driver:</th>
+                                <td>Tom Tom</td>
+                            </tr>
+                            <tr class="side-params">
+                                <th>Fuel tank:</th>
+                                <td>44.66 L</td>
+                            </tr>
+                            <tr class="side-params">
+                                <th>Model:</th>
+                                <td>Honda NSX</td>
+                            </tr>
+                            <tr class="side-params">
+                                <th>Nearest zone:</th>
+                                <td>Heywood (0.00 km)</td>
+                            </tr>
+                            <tr class="side-params">
+                                <th>Plate:</th>
+                                <td>NSX123</td>
+                            </tr>
+                            <tr class="side-params">
+                                <th>Time (position):</th>
+                                <td>2014-10-18 19:51:58</td>
+                            </tr>
+                            <tr class="side-params">
+                                <th>Time (server):</th>
+                                <td>2014-10-18 19:51:49</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="bottom-button">
+                                    <button class="toggle-side-params btn btn-narrow" type="button" class="btn btn-narrow">All parameters</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="enlarge-modal-container" style="display: none">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                    <p>Google Street View</p>
+                    <button class="btn-minimize btn btn-narrow" type="button" class="btn btn-narrow">Minimize <i class="fa fa-compress fa-1"></i></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content">
+                    <div class="main-img-container">
+                        <img class="small-img" alt="Street view" src="assets/image/street-view-demo.jpg">
+                    </div>
+                </div>
+                <div class="info-text">
+                    <p><strong>Object:</strong> supercar</p>
+                </div>
+                <div class="info-text">
+                    <p><strong>Address:</strong> Vokiečių g. 6, Vilnius</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade modal-lg big-custom-modal" id="camera-photos-modal" tabindex="-1" role="dialog" aria-labelledby="cameraPhotosLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <i class="fa fa-camera fa-1 grey-icon"></i> <p class="modal-title">Camera/Photos</p>
+        </div>
+        <div class="modal-body">
+            <div class="main-part main-part-small">
+                <div class="title"><i class="fa fa-map-marker fa-1 grey-icon"></i> Object</div>
+                <div class="search">
+                    <button><i class="fa fa-search"></i></button>
+                    <div><input type="text" placeholder="Find Object" /></div>
+                </div>
+                <div class="data-table">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Object</th>
+                          </tr>
+                        </thead>
+                        <tbody class="scrollbox">
+                          <tr>
+                            <td>Car</td>
+                          </tr>
+                          <tr>
+                            <td>Truck</td>
+                          </tr>
+                          <tr>
+                            <td>Truck</td>
+                          </tr>
+                          <tr>
+                            <td>Car</td>
+                          </tr>
+                          <tr>
+                            <td>Car</td>
+                          </tr>
+                          <tr>
+                            <td>Truck</td>
+                          </tr>
+                          <tr>
+                            <td>Car</td>
+                          </tr>
+                          <tr>
+                            <td>Truck</td>
+                          </tr>
+                          <tr>
+                            <td>Car</td>
+                          </tr>
+                          <tr>
+                            <td>Car</td>
+                          </tr>
+                          <tr>
+                            <td>Truck</td>
+                          </tr>
+                          <tr>
+                            <td>Truck</td>
+                          </tr>
+                          <tr>
+                            <td>Car</td>
+                          </tr>
+                          <tr>
+                            <td>Car</td>
+                          </tr>
+                          <tr>
+                            <td>Truck</td>
+                          </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="data-pagination">
+                    <ul class="pagination">
+                        <li><a href="#"><i class="fa fa-chevron-left"></i> Back</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="dots">...</li>
+                        <li><a href="#">Next <i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-part main-part-medium">
+                <div class="title">
+                    <i class="fa fa-files-o fa-1 grey-icon"></i> Images <span class="title-sub">(truck)</span>
+                    <div class="title-button">
+                        <button class="btn btn-left btn-narrow" type="button">Take live photo <i class="fa fa-camera fa-1"></i></button>
+                    </div>
+                </div>
+
+                <div class="space"></div>
+                <div class="data-table">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Time</th>
+                            <th>Quality</th>
+                            <th>Size</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody class="scrollbox">
+                          <tr>
+                            <td>2015-05-30 09:00:41</td>
+                            <td>HD</td>
+                            <td>126kb</td>
+                            <td>
+                                <div class="dropdown custom-dropdown images-dropdown">
+                                    <i class="fa fa-cog fa-1 control dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Edit</a></li>
+                                        <li><a href="#">Remove</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>2015-05-30 09:00:59</td>
+                            <td>HD</td>
+                            <td>126kb</td>
+                            <td>
+                                <div class="dropdown custom-dropdown images-dropdown">
+                                    <i class="fa fa-cog fa-1 control dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Edit</a></li>
+                                        <li><a href="#">Remove</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>2015-05-30 09:01:23</td>
+                            <td>HD</td>
+                            <td>126kb</td>
+                            <td>
+                                <div class="dropdown custom-dropdown images-dropdown">
+                                    <i class="fa fa-cog fa-1 control dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Edit</a></li>
+                                        <li><a href="#">Remove</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>2015-05-30 09:01:47</td>
+                            <td>HD</td>
+                            <td>126kb</td>
+                            <td>
+                                <div class="dropdown custom-dropdown images-dropdown">
+                                    <i class="fa fa-cog fa-1 control dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Edit</a></li>
+                                        <li><a href="#">Remove</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>2015-05-30 09:02:06</td>
+                            <td>HD</td>
+                            <td>126kb</td>
+                            <td>
+                                <div class="dropdown custom-dropdown images-dropdown">
+                                    <i class="fa fa-cog fa-1 control dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Edit</a></li>
+                                        <li><a href="#">Remove</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>2015-05-30 09:02:32</td>
+                            <td>HD</td>
+                            <td>126kb</td>
+                            <td>
+                                <div class="dropdown custom-dropdown images-dropdown">
+                                    <i class="fa fa-cog fa-1 control dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Edit</a></li>
+                                        <li><a href="#">Remove</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>2015-05-30 09:02:32</td>
+                            <td>HD</td>
+                            <td>126kb</td>
+                            <td>
+                                <div class="dropdown custom-dropdown images-dropdown">
+                                    <i class="fa fa-cog fa-1 control dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Edit</a></li>
+                                        <li><a href="#">Remove</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>2015-05-31 09:03:15</td>
+                            <td>HD</td>
+                            <td>126kb</td>
+                            <td>
+                                <div class="dropdown custom-dropdown images-dropdown">
+                                    <i class="fa fa-cog fa-1 control dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Edit</a></li>
+                                        <li><a href="#">Remove</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>2015-05-31 09:03:15</td>
+                            <td>HD</td>
+                            <td>126kb</td>
+                            <td>
+                                <div class="dropdown custom-dropdown images-dropdown">
+                                    <i class="fa fa-cog fa-1 control dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Edit</a></li>
+                                        <li><a href="#">Remove</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>2015-05-31 09:03:15</td>
+                            <td>HD</td>
+                            <td>126kb</td>
+                            <td>
+                                <div class="dropdown custom-dropdown images-dropdown">
+                                    <i class="fa fa-cog fa-1 control dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Edit</a></li>
+                                        <li><a href="#">Remove</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>2015-05-31 09:03:15</td>
+                            <td>HD</td>
+                            <td>126kb</td>
+                            <td>
+                                <div class="dropdown custom-dropdown images-dropdown">
+                                    <i class="fa fa-cog fa-1 control dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Edit</a></li>
+                                        <li><a href="#">Remove</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>2015-05-31 09:03:15</td>
+                            <td>HD</td>
+                            <td>126kb</td>
+                            <td>
+                                <div class="dropdown custom-dropdown images-dropdown">
+                                    <i class="fa fa-cog fa-1 control dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Edit</a></li>
+                                        <li><a href="#">Remove</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>2015-05-31 09:03:15</td>
+                            <td>HD</td>
+                            <td>126kb</td>
+                            <td>
+                                <div class="dropdown custom-dropdown images-dropdown">
+                                    <i class="fa fa-cog fa-1 control dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Edit</a></li>
+                                        <li><a href="#">Remove</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>2015-05-31 09:03:15</td>
+                            <td>HD</td>
+                            <td>126kb</td>
+                            <td>
+                                <div class="dropdown custom-dropdown images-dropdown">
+                                    <i class="fa fa-cog fa-1 control dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Edit</a></li>
+                                        <li><a href="#">Remove</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>2015-05-31 09:03:15</td>
+                            <td>HD</td>
+                            <td>126kb</td>
+                            <td>
+                                <div class="dropdown custom-dropdown images-dropdown">
+                                    <i class="fa fa-cog fa-1 control dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Edit</a></li>
+                                        <li><a href="#">Remove</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>2015-05-31 09:03:15</td>
+                            <td>HD</td>
+                            <td>126kb</td>
+                            <td>
+                                <div class="dropdown custom-dropdown images-dropdown">
+                                    <i class="fa fa-cog fa-1 control dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Edit</a></li>
+                                        <li><a href="#">Remove</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="data-pagination">
+                    <ul class="pagination">
+                        <li><a href="#"><i class="fa fa-chevron-left"></i> Back</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="dots">...</li>
+                        <li><a href="#">Next <i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-part main-part-large">
+                <div>
+                    <img class="fill-width-img" alt="Street view" src="assets/image/street-view-demo.jpg">
+                </div>
+                <div class="info-text">
+                    <p><strong>Address:</strong> Bitininkų g. 1A, Vilnius 08306, Lithuania.</p>
+                </div>
+                <div class="info-text right">
+                    <p><strong>Time:</strong> 2014-05-30 09:00:41</p>
+                </div>
+                <div>
+                    <img class="fill-width-img" alt="Street view" src="assets/image/google-map-demo-long.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/jquery-1.11.3.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/leaflet.js"></script>
+<script src="assets/js/enscroll-0.6.1.min.js"></script>
+<script src="assets/js/bootstrap-select.min.js"></script>
+<script src="assets/js/bootstrap-datepicker.min.js"></script>
+<script src="assets/js/leaflet.polylineDecorator.min.js"></script>
+<script src="assets/js/leaflet.rotatedMarker.js"></script>
+<script src="assets/js/jquery.flot.min.js"></script>
+<script src="assets/js/jquery.flot.time.min.js"></script>
+<script src="assets/js/jquery.flot.pie.min.js"></script>
+<script src="assets/js/jquery.flot.stack.min.js"></script>
+<script src="assets/js/jquery.flot.valuelabels.js"></script>
+<script src="assets/js/jquery.flot.navigate.min.js"></script>
+<script src="assets/js/map.js"></script>
+<script src="assets/js/app.js"></script>
+
+<script type="text/javascript">
+
+var render = false;
+$(document).on('click', 'a[href="#graph"]', function() {
+    if (render === false) {
+        // Plot renders poorly on hidden elements.
+        // Render plot only when tab is completely open and all elements visible.
+        setTimeout(function() {
+            var speedData = [];
+            var now = 1446368400000;
+            for (var i = 0; i < 299; i++) {
+                randomTime = (Math.floor(Math.random() * 30) + 10) * 60 * 1000;
+                now = now + randomTime;
+                speedData.push([new Date(now).getTime(), Math.floor(Math.random() * 80) + 1]);
+            };
+
+            var graph = $.plot('.graph-1', [{
+                data: speedData,
+                color: "#999999",
+                lines: {
+                    fill: true,
+                    lineWidth: 1
+                }
+            }], {
+                xaxis: {
+                    minTickSize: [30, "minute"],
+                    mode: 'time',
+                    timeformat: "%H:%M",
+                    twelveHourClock: false,
+                },
+                yaxis: {
+                    minTickSize: 1,
+                    tickDecimals: 0,
+                    tickFormatter: function(val, axis) {
+                        return val + ' kph  ';
+                    }
+                },
+                grid: {
+                    color: "#999999",
+                    margin: {
+                        top: 10,
+                        left: 10,
+                        bottom: 10,
+                        right: 10
+                    },
+                    borderWidth: 1,
+                    borderColor: '#DDDDDD'
+                },
+                zoom: {
+                    interactive: false
+                },
+                pan: {
+                    interactive: true
+                }
+            });
+
+            $('.graph-1-controls .graph-zoom-in').click(function(e){
+                e.preventDefault();
+                graph.zoom({ center: { left: 10, top: 0 } });
+            });
+
+            $('.graph-1-controls .graph-zoom-out').click(function(e){
+                e.preventDefault();
+                graph.zoomOut({ center: { left: 10, top: 0 } });
+            });
+        }, 1000);
+        render = true;
+    }
+
+});
+</script>
+<script type="text/javascript">
+
+    function controlSidebar(){
+
+        var sidebar = $('.sidebar');
+        
+       
+            if(!(sidebar.hasClass('collapsed')))
+            {
+                $(sidebar).animate({left: '-5px'});
+                $(sidebar).addClass('collapsed');
+				$('.footer-table').animate({'padding-left': '149px' });
+				$('.addbox > a').css('color', 'transparent' );
+            }
+            else
+            {
+                $(sidebar).animate({left: '0px'});
+                $(sidebar).removeClass('collapsed');
+				$('.footer-table').animate({'padding-left': '259px'});
+				$('.addbox > a').css('color', '#888');
+            } 
+
+    }            
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+   
+    var y = $('.sidebar').height() + 50;
+    
+    $('#map').css('min-height', y);
+});
+</script>
+<script type="text/javascript">
+$(document).on('click', '.enlarge', function() {
+	var enlarger = $('.enlarge');
+	if(!(enlarger.hasClass('enlarged'))){
+		$('.header').addClass('hiddenenlarged');
+		$('.sidebar').addClass('hiddenenlarged');
+		$('.map-view-block').addClass('hiddenenlarged');
+		$('.modal-trigger').addClass('hiddenenlarged');
+		$('.header-collapsed').addClass('hiddenenlarged');
+		$('.enlarge').addClass('enlarged');
+	} else{
+		$('.header').removeClass('hiddenenlarged');
+		$('.sidebar').removeClass('hiddenenlarged');
+		$('.map-view-block').removeClass('hiddenenlarged');
+		$('.modal-trigger').removeClass('hiddenenlarged');
+		$('.header-collapsed').removeClass('hiddenenlarged');
+		$('.enlarge').removeClass('enlarged');
+	}
+});
+</script>
+</body>
+</html>

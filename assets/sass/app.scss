@@ -1,0 +1,24 @@
+@import 'variables';
+@import 'bootstrap';
+@import 'font-awesome/font-awesome';
+@import 'awesome-bootstrap-checkbox';
+
+@import 'template/settings';
+@import 'template/base';
+@import 'template/arrow';
+@import 'template/header';
+@import 'template/markers';
+@import 'template/sidebar';
+@import 'template/modals';
+@import 'template/footer-table';
+
+
+//Header insides
+@import 'template/header-insides';
+
+
+//Footer insides
+@import 'template/footer-insides';
+
+// reports
+@import 'template/reports';

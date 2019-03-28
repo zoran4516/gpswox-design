@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png">
+    <title>GPS Tracking & Fleet Management System</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/css/leaflet.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-datepicker3.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+
+<body class="reports">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <header>
+                    <div class="header-left">
+                        <div class="report-wrap">
+                            <div class="report-logo">
+
+                            </div>
+                        </div>
+                        <div class="report-curve">
+
+                        </div>
+                    </div>
+                    <div class="header-right">
+
+                    </div>
+                </header>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="report-bars"></div>
+                        Activity Detail Overview
+                        <div class="pull-right">
+                            <a href="#" class="btn btn-default btn-sm">Export</a>
+                            <a href="#" class="btn btn-default btn-sm">Schedule</a>
+                            <a href="#" class="btn btn-default btn-sm">Email</a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>Device:</th>
+                                    <td>Opel Astra</td>
+                                    <th>Top speed:</th>
+                                    <td>125 kph</td>
+                                </tr>
+                                <tr>
+                                    <th>Time period:</th>
+                                    <td>2015-11-01 00:00 - 2015-11-13 00:00</td>
+                                    <th>Average speed:</th>
+                                    <td>49 kph</td>
+                                </tr>
+                                <tr>
+                                    <th>Route start:</th>
+                                    <td>2015-11-01 04:57:21</td>
+                                    <th>Overspeed count:</th>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th>Route end:</th>
+                                    <td>2015-11-12 16:04:34</td>
+                                    <th>Fuel consumption:</th>
+                                    <td>52.01 Liters</td>
+                                </tr>
+                                <tr>
+                                    <th>Route length:</th>
+                                    <td>1040.14 Km</td>
+                                    <th>Engine work:</th>
+                                    <td>8h 9min 46s</td>
+                                </tr>
+                                <tr>
+                                    <th>Move duration:</th>
+                                    <td>9h 40min 29s</td>
+                                    <th>Engine idle:</th>
+                                    <td>40min 17s</td>
+                                </tr>
+                                <tr>
+                                    <th>Stop duration:</th>
+                                    <td>265h 26min 44s</td>
+                                    <th>Odometer:</th>
+                                    <td>244480 km</td>
+                                </tr>
+                                <tr>
+                                    <th>Engine hours:</th>
+                                    <td>8h 50min 3s</td>
+                                    <th>&nbsp;</th>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Speed Graphs
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="graph-1-wrap">
+                                    <div class="graph-1"></div>
+                                    <div class="graph-1-controls">
+                                        <a href="#" class="btn btn-xs btn-default graph-zoom-in"><i class="fa fa-plus"></i></a>
+                                        <br>
+                                        <a href="#" class="btn btn-xs btn-default graph-zoom-out"><i class="fa fa-minus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="pie-1"></div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="pie-2"></div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="pie-3"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="graph-2-wrap">
+                                    <div class="graph-2">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="graph-3-wrap">
+                                    <div class="graph-3">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Activity Detail Report
+                        <div class="pull-right">
+                            <small>Underspeed count: 323</small>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>Device:</th>
+                                    <td>Opel Astra</td>
+                                    <th>&nbsp;</th>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <th>Time period:</th>
+                                    <td>2015-05-30 09:00 - 2015-06-14 18:30</td>
+                                    <th>&nbsp;</th>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-body no-padding">
+                        <table class="table table-striped table-speed">
+                            <thead>
+                                <tr>
+                                    <th>Start</th>
+                                    <th>End</th>
+                                    <th>Duration</th>
+                                    <th>Top speed</th>
+                                    <th>Average speed</th>
+                                    <th>Position</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2014-05-30 09:00:41</td><td>2014-05-30 09:03:56</td><td>3min 15s</td><td>76 kph</td><td>56 kph</td><td>54.732323°, 25.765849°</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-05-30 09:00:41</td><td>2014-05-30 09:03:56</td><td>3min 15s</td><td>76 kph</td><td>56 kph</td><td>54.732323°, 25.765849°</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-05-30 09:00:41</td><td>2014-05-30 09:03:56</td><td>3min 15s</td><td>76 kph</td><td>56 kph</td><td>54.732323°, 25.765849°</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-05-30 09:00:41</td><td>2014-05-30 09:03:56</td><td>3min 15s</td><td>76 kph</td><td>56 kph</td><td>54.732323°, 25.765849°</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-05-30 09:00:41</td><td>2014-05-30 09:03:56</td><td>3min 15s</td><td>76 kph</td><td>56 kph</td><td>54.732323°, 25.765849°</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-05-30 09:00:41</td><td>2014-05-30 09:03:56</td><td>3min 15s</td><td>76 kph</td><td>56 kph</td><td>54.732323°, 25.765849°</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-05-30 09:00:41</td><td>2014-05-30 09:03:56</td><td>3min 15s</td><td>76 kph</td><td>56 kph</td><td>54.732323°, 25.765849°</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-05-30 09:00:41</td><td>2014-05-30 09:03:56</td><td>3min 15s</td><td>76 kph</td><td>56 kph</td><td>54.732323°, 25.765849°</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-05-30 09:00:41</td><td>2014-05-30 09:03:56</td><td>3min 15s</td><td>76 kph</td><td>56 kph</td><td>54.732323°, 25.765849°</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-05-30 09:00:41</td><td>2014-05-30 09:03:56</td><td>3min 15s</td><td>76 kph</td><td>56 kph</td><td>54.732323°, 25.765849°</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-05-30 09:00:41</td><td>2014-05-30 09:03:56</td><td>3min 15s</td><td>76 kph</td><td>56 kph</td><td>54.732323°, 25.765849°</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-05-30 09:00:41</td><td>2014-05-30 09:03:56</td><td>3min 15s</td><td>76 kph</td><td>56 kph</td><td>54.732323°, 25.765849°</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-05-30 09:00:41</td><td>2014-05-30 09:03:56</td><td>3min 15s</td><td>76 kph</td><td>56 kph</td><td>54.732323°, 25.765849°</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-05-30 09:00:41</td><td>2014-05-30 09:03:56</td><td>3min 15s</td><td>76 kph</td><td>56 kph</td><td>54.732323°, 25.765849°</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-05-30 09:00:41</td><td>2014-05-30 09:03:56</td><td>3min 15s</td><td>76 kph</td><td>56 kph</td><td>54.732323°, 25.765849°</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-05-30 09:00:41</td><td>2014-05-30 09:03:56</td><td>3min 15s</td><td>76 kph</td><td>56 kph</td><td>54.732323°, 25.765849°</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-05-30 09:00:41</td><td>2014-05-30 09:03:56</td><td>3min 15s</td><td>76 kph</td><td>56 kph</td><td>54.732323°, 25.765849°</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-05-30 09:00:41</td><td>2014-05-30 09:03:56</td><td>3min 15s</td><td>76 kph</td><td>56 kph</td><td>54.732323°, 25.765849°</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-05-30 09:00:41</td><td>2014-05-30 09:03:56</td><td>3min 15s</td><td>76 kph</td><td>56 kph</td><td>54.732323°, 25.765849°</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-05-30 09:00:41</td><td>2014-05-30 09:03:56</td><td>3min 15s</td><td>76 kph</td><td>56 kph</td><td>54.732323°, 25.765849°</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-05-30 09:00:41</td><td>2014-05-30 09:03:56</td><td>3min 15s</td><td>76 kph</td><td>56 kph</td><td>54.732323°, 25.765849°</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-05-30 09:00:41</td><td>2014-05-30 09:03:56</td><td>3min 15s</td><td>76 kph</td><td>56 kph</td><td>54.732323°, 25.765849°</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-05-30 09:00:41</td><td>2014-05-30 09:03:56</td><td>3min 15s</td><td>76 kph</td><td>56 kph</td><td>54.732323°, 25.765849°</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-05-30 09:00:41</td><td>2014-05-30 09:03:56</td><td>3min 15s</td><td>76 kph</td><td>56 kph</td><td>54.732323°, 25.765849°</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/leaflet.js"></script>
+    <script src="assets/js/enscroll-0.6.1.min.js"></script>
+    <script src="assets/js/bootstrap-select.min.js"></script>
+    <script src="assets/js/bootstrap-datepicker.min.js"></script>
+    <script src="assets/js/leaflet.polylineDecorator.min.js"></script>
+    <script src="assets/js/leaflet.rotatedMarker.js"></script>
+    <script src="assets/js/jquery.flot.min.js"></script>
+    <script src="assets/js/jquery.flot.time.min.js"></script>
+    <script src="assets/js/jquery.flot.pie.min.js"></script>
+    <script src="assets/js/jquery.flot.stack.min.js"></script>
+    <script src="assets/js/jquery.flot.valuelabels.js"></script>
+    <script src="assets/js/jquery.flot.navigate.min.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <script>
+        $(function() {
+            var speedData = [];
+
+            var now = 1446368400000;
+            for (var i = 0; i < 299; i++) {
+                randomTime = (Math.floor(Math.random() * 30) + 10) * 60 * 1000;
+                now = now + randomTime;
+                speedData.push([new Date(now).getTime(), Math.floor(Math.random() * 80) + 1]);
+            };
+
+            var graph = $.plot('.graph-1', [{
+                data: speedData,
+                color: "#999999",
+                lines: {
+                    fill: true,
+                    lineWidth: 1
+                }
+            }], {
+                xaxis: {
+                    minTickSize: [30, "minute"],
+                    mode: 'time',
+                    timeformat: "%H:%M",
+                    twelveHourClock: false,
+                },
+                yaxis: {
+                    minTickSize: 1,
+                    tickDecimals: 0,
+                    tickFormatter: function(val, axis) {
+                        return val + ' kph  ';
+                    }
+                },
+                grid: {
+                    color: "#999999",
+                    margin: {
+                        top: 10,
+                        left: 10,
+                        bottom: 10,
+                        right: 10
+                    },
+                    borderWidth: 1,
+                    borderColor: '#DDDDDD'
+                },
+                zoom: {
+                    interactive: false
+                },
+                pan: {
+                    interactive: true
+                }
+            });
+
+            $('.graph-1-controls .graph-zoom-in').click(function(e){
+                e.preventDefault();
+                graph.zoom({ center: { left: 10, top: 0 } });
+            });
+
+            $('.graph-1-controls .graph-zoom-out').click(function(e){
+                e.preventDefault();
+                graph.zoomOut({ center: { left: 10, top: 0 } });
+            });
+
+            // Pie
+            var pieData = [
+                { label: "Under limit", data: 65, color: '#28B3DC'},
+                { label: "Low speed",   data: 9,  color: '#1A99BC'},
+                { label: "Above limit", data: 26, color: '#69CCE9'},
+            ];
+            $.plot('.pie-1', pieData, {
+                series: {
+                    pie: {
+                        show: true
+                    }
+                },
+                legend: {
+                    show: false
+                }
+            });
+
+            var pieData = [
+                { label: "Under limit", data: 65, color: '#DDDDDD'},
+                { label: "Low speed",   data: 9,  color: '#CCCCCC'},
+                { label: "Above limit", data: 26, color: '#AAAAAA'},
+            ];
+            $.plot('.pie-2', pieData, {
+                series: {
+                    pie: {
+                        show: true
+                    }
+                },
+                legend: {
+                    show: false
+                }
+            });
+
+            var pieData = [
+                { label: "Under limit", data: 65, color: '#28C375'},
+                { label: "Low speed",   data: 9,  color: '#04AA56'},
+                { label: "Above limit", data: 26, color: '#32D481'},
+            ];
+            $.plot('.pie-3', pieData, {
+                series: {
+                    pie: {
+                        show: true
+                    }
+                },
+                legend: {
+                    show: false
+                }
+            });
+
+            var speedData = [
+                [new Date("2015-11-01 09:00:00").getTime(), 10],
+                [new Date("2015-11-01 09:11:00").getTime(), 40],
+                [new Date("2015-11-01 09:45:00").getTime(), 67],
+                [new Date("2015-11-01 10:10:00").getTime(), 55],
+                [new Date("2015-11-01 10:13:00").getTime(), 45],
+                [new Date("2015-11-01 10:50:00").getTime(), 110],
+                [new Date("2015-11-01 11:12:00").getTime(), 89],
+                [new Date("2015-11-01 11:55:00").getTime(), 155],
+                [new Date("2015-11-01 11:59:00").getTime(), 110],
+                [new Date("2015-11-01 12:34:00").getTime(), 71],
+                [new Date("2015-11-01 13:09:00").getTime(), 55],
+                [new Date("2015-11-01 13:43:00").getTime(), 20],
+                [new Date("2015-11-01 14:32:00").getTime(), 55],
+                [new Date("2015-11-01 14:56:00").getTime(), 37],
+            ];
+            $.plot('.graph-2', [{
+                data: speedData,
+                color: "#999999",
+                lines: {
+                    fill: false,
+                    lineWidth: 1
+                }
+            }], {
+                xaxis: {
+                    minTickSize: [30, "minute"],
+                    mode: 'time',
+                    timeformat: "%H:%M",
+                    twelveHourClock: false,
+                },
+                yaxis: {
+                    minTickSize: 1,
+                    tickDecimals: 0,
+                    tickFormatter: function(val, axis) {
+                        return val + ' kph  ';
+                    }
+                },
+                grid: {
+                    color: "#999999",
+                    margin: {
+                        top: 10,
+                        left: 10,
+                        bottom: 10,
+                        right: 10
+                    },
+                    borderWidth: 1,
+                    borderColor: '#DDDDDD'
+                }
+            });
+
+            var rawData1 = [
+                [47, 0],
+                [47, 1],
+                [43, 2],
+                [18, 3],
+                [43, 4],
+                [25.2, 5],
+                [13, 6]
+            ];
+
+            var rawData2 = [
+                [53, 0],
+                [49, 1],
+                [43, 2],
+                [31.3, 3],
+                [43, 4],
+                [25.2, 5],
+                [13, 6]
+            ];
+
+            var tickData = [
+                [0, "Adam"],
+                [1, "Scott Harder"],
+                [2, "Michael"],
+                [3, "pogo201"],
+                [4, "SteveH."],
+                [5, "Palermon"],
+                [6, "Jack"],
+            ];
+            // Bars data must be set from highest to lowest in order to see
+            // stacked bars
+            $.plot('.graph-3', [{
+                data: rawData2,
+                color: "#28B3DC",
+            },
+            {
+                data: rawData1,
+                color: "#1A99BC",
+            }], {
+                series: {
+                    stack: false,
+                    bars: {
+                        show: true
+                    },
+                    valueLabels: {
+                        show: true,
+                        plotAxis: 'x',
+                        useDecimalComma: true,
+                        fontcolor: '#FFFFFF',
+                        align: 'end',
+                        valign: 'top',
+                        showAsHtml: true
+                    },
+                },
+
+                bars: {
+                    align: "center",
+                    barWidth: 0.5,
+                    horizontal: true,
+                    fillColor: {colors: [{ opacity: 1 }, { opacity: 1}] },
+                    lineWidth: 1
+                },
+                xaxis: {
+                    tickColor: "#E9E9E9",
+                    max: 60
+                },
+                yaxis: {
+                    tickColor: "#E9E9E9",
+                    ticks: tickData,
+                },
+                grid: {
+                    color: "#999999",
+                    margin: {
+                        top: 10,
+                        left: 10,
+                        bottom: 10,
+                        right: 10
+                    },
+                    borderWidth: 1,
+                    borderColor: '#DDDDDD'
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

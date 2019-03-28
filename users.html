@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png">
+    <title>GPS Tracking & Fleet Management System | Users</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/css/leaflet.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-datepicker3.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/app.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/flat/blue.css">
+</head>
+<body>
+    
+    <div class="header collapse in menuCollapse hidden-xs menu-full">
+        <div class="logo">
+            <a href="#">
+                <img src="assets/image/logo-header-main.png" class="logo-main" />
+                <img src="assets/image/logo-header-gpswox.png" class="logo-alt" />
+            </a>
+        </div>
+        <span class="inside_cms_txt">ADMIN CMS</span>
+        <div class="menu_inside">
+            <a href="#" class="menu_link">Map</a>
+            <a href="#" class="menu_link">Users (8 / 39)</a>
+            <a href="#" class="menu_link">Events</a>
+            <div class="menu_link" id="menu_content">
+                Content
+                <div class="menu_link_dropdown">
+                    <a href="#" class="dropdown_link">Email templates</a>
+                    <a href="#" class="dropdown_link">SMS templates</a>
+                    <a href="#" class="dropdown_link">Map icons</a>
+                    <a href="#" class="dropdown_link">Device icons</a>
+                </div>
+            </div>
+            <a href="#" class="menu_link">Setup</a>
+            <a href="#" class="menu_link">Logs</a>
+			<div class="top_line_dropdown">
+                <span class="logged_in_user">
+                    Admin@gpswox.com (Admin)
+                    
+                    <div class="top_line_dropdown_content">
+                        <a href="#">Restart Tracking Service</a>
+                        <a href="#">Log Out</a>
+                    </div>
+                </span>
+            </div>
+        </div>      
+    </div>
+    
+    <div class="header-collapsed header-mobile visible-xs">
+        <div class="logo">
+            <a href="#">
+                <img src="assets/image/logo-header-main.png" class="logo-main" />
+            </a>
+        </div>   
+    </div>
+	
+	<div style="clear: both;"></div>
+	
+	
+	<div id="fade" class="black_overlay"></div>
+	<div id="addu" class="adduser_box">
+		<div class="inside_headline">
+			<h3 class="headline_txt">Add new User</h3>
+			<span class="close_user_box" id="close_adduser_box">✕</span>
+		</div>
+		<form name="add_user_form" method="post">
+			<div class="inside_content">
+				<h3 class="content_headline">Permissions</h3>
+				<div class="sep_checkboxes_block">
+					<div class="sep_checkbox sep_primary">
+					   <label><input type="checkbox" value="">Android</label>
+					</div>
+					<div class="sep_checkbox sep_primary">
+					   <label><input type="checkbox" value="">Android2</label>
+					</div>
+					<div class="sep_checkbox">
+					   <label><input type="checkbox" value="">iOS</label>
+					</div>
+					<div class="sep_checkbox">
+					   <label><input type="checkbox" value="">iOS2</label>
+					</div>
+					<div class="sep_checkbox">
+					   <label><input type="checkbox" value="">Windows</label>
+					</div>
+				   <div class="sep_checkbox">
+					   <label><input type="checkbox" value="">Windows2</label>
+				   </div>
+				</div>
+				<h3 class="content_headline2">Name*</h3>
+				<input type="text" class="sep-input" id="sname" value="John stevens">
+				<h3 class="content_headline2">IMEI or Device Identifier*</h3>
+				<input type="text" class="sep-input2" id="imei">
+				<h3 class="content_headline2">Group*</h3>
+				<select class="sep_select_input" id="group_select">
+					<option>Select Group</option>
+					<option>Select One</option>
+					<option>Select All</option>
+				</select>
+			</div>
+			<div class="sep_footer">
+				<div class="sep_footer_content">
+					<input type="submit" value="Save" class="submit_sep_btn">
+					<input type="reset" value="Cancel" class="reset_sep_btn">
+				</div>
+			</div>
+		</form>
+	</div>
+	
+	
+	<div class="container inside user_container">
+		<div class="inside_block">
+		
+			<button type="submit" id="adduser" class="add_user_input">Add new user +</button>
+			<button type="submit" id="adddev" class="add_user_input">Add new device +</button>
+			<button type="submit" id="imp" class="add_user_input">Import geofences +</button>
+			
+			
+			
+			
+			
+			
+			<div class="inside_headline">
+				<form class="search_inputs_block" id="sblock" method="POST">
+					<div class="search_field" id="slook">
+						Search &#8597;
+					</div>
+					
+					<div class="search_inputs_content" id="scontent">
+						<div class="search_input_field">
+							<label>Search device IMEI:</label>
+							<input type="text" class="search_input_1">
+						</div>
+						<div class="search_input_field">
+							<label>Search:</label>
+							<input type="text" class="search_input_1">
+						</div>
+					</div>
+				
+				</form>
+				<h3 class="headline_txt">Users</h3>
+			</div>
+			<div class="inside_content users">
+				<div class="users_block">
+					<table class="users_table">
+						<tr class="users_tr_headings">
+							<th>Active</th>
+							<th>Email</th>
+							<th>Group</th>
+							<th>Manager</th>
+							<th>Add devices</th>
+							<th>SMS Gateway</th>
+							<th>Devices</th>
+							<th>Sub. acc</th>
+							<th>Exp. date</th>
+							<th>Last Visited</th>
+							<th></th>
+							<th>Action</th>
+						</tr>
+						<tr class="first_tr">
+							<td>Active</td>
+							<td>7danat@gmail.com</td>
+							<td>User</td>
+							<td>Yes</td>
+							<td>No</td>
+							<td>Yes</td>
+							<td>0 / Unlimited</td>
+							<td>0</td>
+							<td>Unlimited</td>
+							<td>2014-05-30 09:01:39</td>
+							<td class="user_gear">
+								<div class="user_gear_content">
+									<div class="user_arrow_box">
+										<a href="#">Edit</a>
+										<a href="#">Log in as</a>
+									</div>
+								</div>
+							</td>
+							<td class="last_arrow closed"></td>
+						</tr>
+						<tr class="further_info_user">
+							<td colspan="12">
+								<table class="further_table">
+									<tr class="further_tr_headings">
+										<th>Name</th>
+										<th>IMEI or Device Idetifier</th>
+										<th>Online</th>
+										<th>Expiration Date</th>
+										<th>Action</th>
+									</tr>
+									<tr class="first_tr">
+										<td>Nissan Pickup 1564123</td>
+										<td>1325486513510234</td>
+										<td class="online_dot"><img src="assets/image/green_dot.png"></td>
+										<td>Unlimited</td>
+										<td class="user_gear">
+											<div class="user_gear_content">
+												<div class="user_arrow_box">
+													<a href="#">Edit</a>
+													<a href="#">Log in as</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="second_tr">
+										<td>Nissan Pickup 1564123</td>
+										<td>1325486513510234</td>
+										<td class="online_dot"><img src="assets/image/red_dot.png"></td>
+										<td>2014-05-30 09:01:39</td>
+										<td class="user_gear">
+											<div class="user_gear_content">
+												<div class="user_arrow_box">
+													<a href="#">Edit</a>
+													<a href="#">Log in as</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="first_tr">
+										<td>Nissan Pickup 1564123</td>
+										<td>1325486513510234</td>
+										<td class="online_dot"><img src="assets/image/green_dot.png"></td>
+										<td>Unlimited</td>
+										<td class="user_gear">
+											<div class="user_gear_content">
+												<div class="user_arrow_box">
+													<a href="#">Edit</a>
+													<a href="#">Log in as</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="second_tr">
+										<td>Nissan Pickup 1564123</td>
+										<td>1325486513510234</td>
+										<td class="online_dot"><img src="assets/image/red_dot.png"></td>
+										<td>2014-05-30 09:01:39</td>
+										<td class="user_gear">
+											<div class="user_gear_content">
+												<div class="user_arrow_box">
+													<a href="#">Edit</a>
+													<a href="#">Log in as</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="first_tr">
+										<td>Nissan Pickup 1564123</td>
+										<td>1325486513510234</td>
+										<td class="online_dot"><img src="assets/image/green_dot.png"></td>
+										<td>Unlimited</td>
+										<td class="user_gear">
+											<div class="user_gear_content">
+												<div class="user_arrow_box">
+													<a href="#">Edit</a>
+													<a href="#">Log in as</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="second_tr">
+										<td>Nissan Pickup 1564123</td>
+										<td>1325486513510234</td>
+										<td class="online_dot"><img src="assets/image/red_dot.png"></td>
+										<td>2014-05-30 09:01:39</td>
+										<td class="user_gear">
+											<div class="user_gear_content">
+												<div class="user_arrow_box">
+													<a href="#">Edit</a>
+													<a href="#">Log in as</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="first_tr">
+										<td>Nissan Pickup 1564123</td>
+										<td>1325486513510234</td>
+										<td class="online_dot"><img src="assets/image/green_dot.png"></td>
+										<td>Unlimited</td>
+										<td class="user_gear">
+											<div class="user_gear_content">
+												<div class="user_arrow_box">
+													<a href="#">Edit</a>
+													<a href="#">Log in as</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="second_tr">
+										<td>Nissan Pickup 1564123</td>
+										<td>1325486513510234</td>
+										<td class="online_dot"><img src="assets/image/red_dot.png"></td>
+										<td>2014-05-30 09:01:39</td>
+										<td class="user_gear">
+											<div class="user_gear_content">
+												<div class="user_arrow_box">
+													<a href="#">Edit</a>
+													<a href="#">Log in as</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						
+						<tr class="second_tr">
+							<td>Active</td>
+							<td>7danat@gmail.com</td>
+							<td>User</td>
+							<td>Yes</td>
+							<td>No</td>
+							<td>Yes</td>
+							<td>0 / Unlimited</td>
+							<td>0</td>
+							<td>Unlimited</td>
+							<td>2014-05-30 09:01:39</td>
+							<td class="user_gear">
+								<div class="user_gear_content">
+									<div class="user_arrow_box">
+										<a href="#">Edit</a>
+										<a href="#">Log in as</a>
+									</div>
+								</div>
+							</td>
+							<td class="last_arrow closed"></td>
+						</tr>
+						
+						<tr class="first_tr">
+							<td>Active</td>
+							<td>7danat@gmail.com</td>
+							<td>User</td>
+							<td>Yes</td>
+							<td>No</td>
+							<td>Yes</td>
+							<td>0 / Unlimited</td>
+							<td>0</td>
+							<td>Unlimited</td>
+							<td>2014-05-30 09:01:39</td>
+							<td class="user_gear">
+								<div class="user_gear_content">
+									<div class="user_arrow_box">
+										<a href="#">Edit</a>
+										<a href="#">Log in as</a>
+									</div>
+								</div>
+							</td>
+							<td class="last_arrow closed"></td>
+						</tr>
+						<tr class="further_info_user">
+							<td colspan="12">
+								<table class="further_table">
+									<tr class="further_tr_headings">
+										<th>Name</th>
+										<th>IMEI or Device Idetifier</th>
+										<th>Online</th>
+										<th>Expiration Date</th>
+										<th>Action</th>
+									</tr>
+									<tr class="first_tr">
+										<td>Nissan Pickup 1564123</td>
+										<td>1325486513510234</td>
+										<td class="online_dot"><img src="assets/image/green_dot.png"></td>
+										<td>Unlimited</td>
+										<td class="user_gear">
+											<div class="user_gear_content">
+												<div class="user_arrow_box">
+													<a href="#">Edit</a>
+													<a href="#">Log in as</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="second_tr">
+										<td>Nissan Pickup 1564123</td>
+										<td>1325486513510234</td>
+										<td class="online_dot"><img src="assets/image/red_dot.png"></td>
+										<td>2014-05-30 09:01:39</td>
+										<td class="user_gear">
+											<div class="user_gear_content">
+												<div class="user_arrow_box">
+													<a href="#">Edit</a>
+													<a href="#">Log in as</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="first_tr">
+										<td>Nissan Pickup 1564123</td>
+										<td>1325486513510234</td>
+										<td class="online_dot"><img src="assets/image/green_dot.png"></td>
+										<td>Unlimited</td>
+										<td class="user_gear">
+											<div class="user_gear_content">
+												<div class="user_arrow_box">
+													<a href="#">Edit</a>
+													<a href="#">Log in as</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="second_tr">
+										<td>Nissan Pickup 1564123</td>
+										<td>1325486513510234</td>
+										<td class="online_dot"><img src="assets/image/red_dot.png"></td>
+										<td>2014-05-30 09:01:39</td>
+										<td class="user_gear">
+											<div class="user_gear_content">
+												<div class="user_arrow_box">
+													<a href="#">Edit</a>
+													<a href="#">Log in as</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="first_tr">
+										<td>Nissan Pickup 1564123</td>
+										<td>1325486513510234</td>
+										<td class="online_dot"><img src="assets/image/green_dot.png"></td>
+										<td>Unlimited</td>
+										<td class="user_gear">
+											<div class="user_gear_content">
+												<div class="user_arrow_box">
+													<a href="#">Edit</a>
+													<a href="#">Log in as</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="second_tr">
+										<td>Nissan Pickup 1564123</td>
+										<td>1325486513510234</td>
+										<td class="online_dot"><img src="assets/image/red_dot.png"></td>
+										<td>2014-05-30 09:01:39</td>
+										<td class="user_gear">
+											<div class="user_gear_content">
+												<div class="user_arrow_box">
+													<a href="#">Edit</a>
+													<a href="#">Log in as</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="first_tr">
+										<td>Nissan Pickup 1564123</td>
+										<td>1325486513510234</td>
+										<td class="online_dot"><img src="assets/image/green_dot.png"></td>
+										<td>Unlimited</td>
+										<td class="user_gear">
+											<div class="user_gear_content">
+												<div class="user_arrow_box">
+													<a href="#">Edit</a>
+													<a href="#">Log in as</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="second_tr">
+										<td>Nissan Pickup 1564123</td>
+										<td>1325486513510234</td>
+										<td class="online_dot"><img src="assets/image/red_dot.png"></td>
+										<td>2014-05-30 09:01:39</td>
+										<td class="user_gear">
+											<div class="user_gear_content">
+												<div class="user_arrow_box">
+													<a href="#">Edit</a>
+													<a href="#">Log in as</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						
+						<tr class="second_tr">
+							<td>Active</td>
+							<td>7danat@gmail.com</td>
+							<td>User</td>
+							<td>Yes</td>
+							<td>No</td>
+							<td>Yes</td>
+							<td>0 / Unlimited</td>
+							<td>0</td>
+							<td>Unlimited</td>
+							<td>2014-05-30 09:01:39</td>
+							<td class="user_gear">
+								<div class="user_gear_content">
+									<div class="user_arrow_box">
+										<a href="#">Edit</a>
+										<a href="#">Log in as</a>
+									</div>
+								</div>
+							</td>
+							<td class="last_arrow closed"></td>
+						</tr>
+						<tr class="further_info_user">
+							<td colspan="12">
+								<table class="further_table">
+									<tr class="further_tr_headings">
+										<th>Name</th>
+										<th>IMEI or Device Idetifier</th>
+										<th>Online</th>
+										<th>Expiration Date</th>
+										<th>Action</th>
+									</tr>
+									<tr class="first_tr">
+										<td>Nissan Pickup 1564123</td>
+										<td>1325486513510234</td>
+										<td class="online_dot"><img src="assets/image/green_dot.png"></td>
+										<td>Unlimited</td>
+										<td class="user_gear">
+											<div class="user_gear_content">
+												<div class="user_arrow_box">
+													<a href="#">Edit</a>
+													<a href="#">Log in as</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="second_tr">
+										<td>Nissan Pickup 1564123</td>
+										<td>1325486513510234</td>
+										<td class="online_dot"><img src="assets/image/red_dot.png"></td>
+										<td>2014-05-30 09:01:39</td>
+										<td class="user_gear">
+											<div class="user_gear_content">
+												<div class="user_arrow_box">
+													<a href="#">Edit</a>
+													<a href="#">Log in as</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="first_tr">
+										<td>Nissan Pickup 1564123</td>
+										<td>1325486513510234</td>
+										<td class="online_dot"><img src="assets/image/green_dot.png"></td>
+										<td>Unlimited</td>
+										<td class="user_gear">
+											<div class="user_gear_content">
+												<div class="user_arrow_box">
+													<a href="#">Edit</a>
+													<a href="#">Log in as</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="second_tr">
+										<td>Nissan Pickup 1564123</td>
+										<td>1325486513510234</td>
+										<td class="online_dot"><img src="assets/image/red_dot.png"></td>
+										<td>2014-05-30 09:01:39</td>
+										<td class="user_gear">
+											<div class="user_gear_content">
+												<div class="user_arrow_box">
+													<a href="#">Edit</a>
+													<a href="#">Log in as</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="first_tr">
+										<td>Nissan Pickup 1564123</td>
+										<td>1325486513510234</td>
+										<td class="online_dot"><img src="assets/image/green_dot.png"></td>
+										<td>Unlimited</td>
+										<td class="user_gear">
+											<div class="user_gear_content">
+												<div class="user_arrow_box">
+													<a href="#">Edit</a>
+													<a href="#">Log in as</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="second_tr">
+										<td>Nissan Pickup 1564123</td>
+										<td>1325486513510234</td>
+										<td class="online_dot"><img src="assets/image/red_dot.png"></td>
+										<td>2014-05-30 09:01:39</td>
+										<td class="user_gear">
+											<div class="user_gear_content">
+												<div class="user_arrow_box">
+													<a href="#">Edit</a>
+													<a href="#">Log in as</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="first_tr">
+										<td>Nissan Pickup 1564123</td>
+										<td>1325486513510234</td>
+										<td class="online_dot"><img src="assets/image/green_dot.png"></td>
+										<td>Unlimited</td>
+										<td class="user_gear">
+											<div class="user_gear_content">
+												<div class="user_arrow_box">
+													<a href="#">Edit</a>
+													<a href="#">Log in as</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="second_tr">
+										<td>Nissan Pickup 1564123</td>
+										<td>1325486513510234</td>
+										<td class="online_dot"><img src="assets/image/red_dot.png"></td>
+										<td>2014-05-30 09:01:39</td>
+										<td class="user_gear">
+											<div class="user_gear_content">
+												<div class="user_arrow_box">
+													<a href="#">Edit</a>
+													<a href="#">Log in as</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						
+						<tr class="first_tr">
+							<td>Active</td>
+							<td>7danat@gmail.com</td>
+							<td>User</td>
+							<td>Yes</td>
+							<td>No</td>
+							<td>Yes</td>
+							<td>0 / Unlimited</td>
+							<td>0</td>
+							<td>Unlimited</td>
+							<td>2014-05-30 09:01:39</td>
+							<td class="user_gear">
+								<div class="user_gear_content">
+									<div class="user_arrow_box">
+										<a href="#">Edit</a>
+										<a href="#">Log in as</a>
+									</div>
+								</div>
+							</td>
+							<td class="last_arrow closed"></td>
+						</tr>
+						
+						<tr class="second_tr">
+							<td>Active</td>
+							<td>7danat@gmail.com</td>
+							<td>User</td>
+							<td>Yes</td>
+							<td>No</td>
+							<td>Yes</td>
+							<td>0 / Unlimited</td>
+							<td>0</td>
+							<td>Unlimited</td>
+							<td>2014-05-30 09:01:39</td>
+							<td class="user_gear">
+								<div class="user_gear_content">
+									<div class="user_arrow_box">
+										<a href="#">Edit</a>
+										<a href="#">Log in as</a>
+									</div>
+								</div>
+							</td>
+							<td class="last_arrow closed"></td>
+						</tr>
+						
+						<tr class="first_tr">
+							<td>Active</td>
+							<td>7danat@gmail.com</td>
+							<td>User</td>
+							<td>Yes</td>
+							<td>No</td>
+							<td>Yes</td>
+							<td>0 / Unlimited</td>
+							<td>0</td>
+							<td>Unlimited</td>
+							<td>2014-05-30 09:01:39</td>
+							<td class="user_gear">
+								<div class="user_gear_content">
+									<div class="user_arrow_box">
+										<a href="#">Edit</a>
+										<a href="#">Log in as</a>
+									</div>
+								</div>
+							</td>
+							<td class="last_arrow closed"></td>
+						</tr>
+						
+						<tr class="second_tr">
+							<td>Active</td>
+							<td>7danat@gmail.com</td>
+							<td>User</td>
+							<td>Yes</td>
+							<td>No</td>
+							<td>Yes</td>
+							<td>0 / Unlimited</td>
+							<td>0</td>
+							<td>Unlimited</td>
+							<td>2014-05-30 09:01:39</td>
+							<td class="user_gear">
+								<div class="user_gear_content">
+									<div class="user_arrow_box">
+										<a href="#">Edit</a>
+										<a href="#">Log in as</a>
+									</div>
+								</div>
+							</td>
+							<td class="last_arrow closed"></td>
+						</tr>
+						
+						<tr class="first_tr">
+							<td>Active</td>
+							<td>7danat@gmail.com</td>
+							<td>User</td>
+							<td>Yes</td>
+							<td>No</td>
+							<td>Yes</td>
+							<td>0 / Unlimited</td>
+							<td>0</td>
+							<td>Unlimited</td>
+							<td>2014-05-30 09:01:39</td>
+							<td class="user_gear">
+								<div class="user_gear_content">
+									<div class="user_arrow_box">
+										<a href="#">Edit</a>
+										<a href="#">Log in as</a>
+									</div>
+								</div>
+							</td>
+							<td class="last_arrow closed"></td>
+						</tr>
+						
+						<tr class="second_tr">
+							<td>Active</td>
+							<td>7danat@gmail.com</td>
+							<td>User</td>
+							<td>Yes</td>
+							<td>No</td>
+							<td>Yes</td>
+							<td>0 / Unlimited</td>
+							<td>0</td>
+							<td>Unlimited</td>
+							<td>2014-05-30 09:01:39</td>
+							<td class="user_gear">
+								<div class="user_gear_content">
+									<div class="user_arrow_box">
+										<a href="#">Edit</a>
+										<a href="#">Log in as</a>
+									</div>
+								</div>
+							</td>
+							<td class="last_arrow closed"></td>
+						</tr>
+					</table>
+				</div>
+				<div class="pagination">
+					<a href="#" class="pag">&#171;</a>
+					<a href="#" class="pag">1</a>
+					<a href="#" class="pag">2</a>
+					<a href="#" class="pag">3</a>
+					<a href="#" class="pag_space">...</a>
+					<a href="#" class="pag">178</a>
+					<a href="#" class="pag">&#187;</a>
+				</div>
+			</div>
+		</div>
+		<div class="footer_inside">
+            <div class="footer_corner_wrap">
+                    <span class="footer_txt">2016 &copy; GPS Tracker</span> <span class="footer_txt">214.76.165.1.10 | CPU 1,26% | RAM: 4447Mb | DB size: 4451Mb</span>
+            </div>
+        </div>
+	</div>
+
+
+	<script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap-select.min.js"></script>
+    <script src="assets/js/bootstrap-datepicker.min.js"></script>
+	<script src="assets/js/icheck.js"></script>
+	
+	<script type="text/javascript">
+	$(document).ready(function(){
+	  $('input').iCheck({
+		checkboxClass: 'icheckbox_flat-blue',
+		radioClass: 'iradio_flat-blue'
+	  });
+	});
+	</script>
+    
+    
+    <script type="text/javascript">
+    $(document).on('click', '.top_line_dropdown', function(e) {
+        var drop = $('.top_line_dropdown_content');
+        if(!(drop.hasClass('log_show')))
+        {
+            $(drop).addClass('log_show');
+        }
+        else
+        {
+            $(drop).removeClass('log_show');        
+        }      
+    });        
+    </script>
+	<script type="text/javascript">
+	$(document).on('click', '.users_table tr .last_arrow', function() {
+		var arrow = $(this);
+		//var dropdown = $('.users_table tr .user_gear').next('.user_arrow_box');
+		
+		if(arrow.hasClass('closed')){
+			arrow.removeClass('closed');
+			arrow.addClass('opened');
+			arrow.parent().addClass('expanded');
+			arrow.parent().next('.further_info_user').addClass('active');
+		}
+		else {
+			arrow.removeClass('opened');
+			arrow.addClass('closed');
+			arrow.parent().removeClass('expanded');
+			arrow.parent().next('.further_info_user').removeClass('active');
+		}
+		
+		
+	});
+	</script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		var target = $('.users_table tr .user_gear').find('.user_gear_content');
+		//var dropdown = $('.users_table tr .user_gear').next('.user_arrow_box');
+			/*target.click(function(){
+				var all = $('.users_table tr .user_gear').find('.user_arrow_box');
+                var a = $(this).parent().find('.user_arrow_box');
+                    all.not($(a)).removeClass('active');
+                    a.toggleClass('active');
+                return false;
+            });*/
+			
+			target.hover(function() {
+				$(this).find('.user_arrow_box').fadeIn('fast');
+			}, function() {
+				$(this).find('.user_arrow_box').fadeOut('fast');
+			});		
+	});
+	</script>
+	
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('#adduser').click(function() {
+			$('#fade').addClass('active');
+			$('#addu').addClass('active');
+			
+			$('#close_adduser_box').click(function(){
+				$('#addu').removeClass('active');
+				$('#fade').removeClass('active');
+			});
+		});
+	});
+	</script>
+	
+	<script type="text/javascript">
+	 $(document).on('click', '#slook', function() {
+		if(!($('#scontent').hasClass('expanded'))){
+			$('#sblock').css({'margin-top' : '-65px'});
+			/*setTimeout(function() {
+				$('#scontent').addClass('expanded');
+			}, 80);*/
+			$('#scontent').addClass('expanded');
+			$('#scontent').fadeIn('fast');
+		}
+		
+		else
+		{	
+			/*setTimeout(function() {
+				$('#scontent').removeClass('expanded');
+			}, 200);*/
+			$('#scontent').removeClass('expanded');
+			$('#scontent').fadeOut('fast', function() {
+				$('#sblock').css({'margin-top' : '0px'});
+			});	
+		}
+	});
+	</script>
+</body>
+</html>

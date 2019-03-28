@@ -1,0 +1,54 @@
+/* iCheck plugin Flat skin, blue
+----------------------------------- */
+.icheckbox_flat-blue,
+.iradio_flat-blue {
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 12px;
+    height: 12px;
+    background: url(blue.png) no-repeat;
+    border: none;
+    cursor: pointer;
+	margin-right: 5px;
+}
+
+.icheckbox_flat-blue {
+    background-position: 0 0;
+}
+    .icheckbox_flat-blue.checked {
+        background-position: -12px 0;
+    }
+    .icheckbox_flat-blue.disabled {
+        background-position: -24px 0;
+        cursor: default;
+    }
+    .icheckbox_flat-blue.checked.disabled {
+        background-position: -48px 0;
+    }
+
+.iradio_flat-blue {
+    background-position: -48px 0;
+}
+    .iradio_flat-blue.checked {
+        background-position: -60px 0;
+    }
+    .iradio_flat-blue.disabled {
+        background-position: -72px 0;
+        cursor: default;
+    }
+    .iradio_flat-blue.checked.disabled {
+        background-position: -154px 0;
+    }
+
+/* HiDPI support */
+@media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi), (min-resolution: 1.25dppx) {
+    .icheckbox_flat-blue,
+    .iradio_flat-blue {
+        background-image: url(blue@2x.png);
+        -webkit-background-size: 176px 22px;
+        background-size: 176px 22px;
+    }
+}

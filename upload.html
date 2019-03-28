@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png">
+    <title>GPS Tracking & Fleet Management System | Uploads</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/css/leaflet.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-datepicker3.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/app.css">
+</head>
+
+<body>
+    <div class="header collapse in menuCollapse hidden-xs menu-full">
+        <div class="logo">
+            <a href="#">
+                <img src="assets/image/logo-header-main.png" class="logo-main" />
+                <img src="assets/image/logo-header-gpswox.png" class="logo-alt" />
+            </a>
+        </div>
+        <span class="inside_cms_txt">ADMIN CMS</span>
+        <div class="menu_inside">
+            <a href="#" class="menu_link">Map</a>
+            <a href="#" class="menu_link">Users (8 / 39)</a>
+            <a href="#" class="menu_link">Events</a>
+            <div class="menu_link" id="menu_content">
+                Content
+                <div class="menu_link_dropdown">
+                    <a href="#" class="dropdown_link">Email templates</a>
+                    <a href="#" class="dropdown_link">SMS templates</a>
+                    <a href="#" class="dropdown_link">Map icons</a>
+                    <a href="#" class="dropdown_link">Device icons</a>
+                </div>
+            </div>
+            <a href="#" class="menu_link">Setup</a>
+            <a href="#" class="menu_link">Logs</a>
+			<div class="top_line_dropdown">
+                <span class="logged_in_user">
+                    Admin@gpswox.com (Admin)
+                    
+                    <div class="top_line_dropdown_content">
+                        <a href="#">Restart Tracking Service</a>
+                        <a href="#">Log Out</a>
+                    </div>
+                </span>
+            </div>
+        </div>      
+    </div>
+    
+    <div class="header-collapsed header-mobile visible-xs">
+        <div class="logo">
+            <a href="#">
+                <img src="assets/image/logo-header-main.png" class="logo-main" />
+            </a>
+        </div>   
+    </div>
+	
+	<div style="clear: both;"></div>
+    
+    
+    <div class="container inside">
+        <div class="inside_block">
+            <div class="inside_headline">
+                <h3 class="headline_txt">Map Icons</h3>
+            </div>
+            <div class="inside_content upload">
+                <form class="upload_files_block" name="upload_files" method="POST">
+                    <div class="upload_txt">
+                       <div class="drop_files">
+                           <img src="assets/image/upload_icon.png">
+                           <br>
+                           Drop files to upload
+                           <br>
+                           or
+                           <br>
+                           <div class="fileUpload btn btn-default">
+                            <span>Browse files</span>
+                            <input type="file" class="upload_input" />
+                           </div>
+                       </div>
+                    </div>
+                </form>
+                
+                <div class="uploaded_files_block">
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                    <div class="uploaded_file">
+                        <img src="assets/image/file_icon.png">
+                        <span class="del_file">✕</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_inside">
+            <div class="footer_corner_wrap">
+                    <span class="footer_txt">2016 &copy; GPS Tracker</span> <span class="footer_txt">214.76.165.1.10 | CPU 1,26% | RAM: 4447Mb | DB size: 4451Mb</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap-select.min.js"></script>
+    <script src="assets/js/bootstrap-datepicker.min.js"></script>
+    
+    
+    <script type="text/javascript">
+    $(document).on('click', '.top_line_dropdown', function(e) {
+        var drop = $('.top_line_dropdown_content');
+        if(!(drop.hasClass('log_show')))
+        {
+            $(drop).addClass('log_show');
+        }
+        else
+        {
+            $(drop).removeClass('log_show');        
+        }      
+    });        
+    </script>
+</body>
+</html>

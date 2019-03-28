@@ -1,0 +1,37 @@
+@mixin arrow($first_pos, $second_pos, $first_per, $second_per, $aborder) {
+    .arrow_box {
+        position: relative;
+        background: #f9f9f9;
+        border: 1px solid #e8e8e8;
+        color: #1b99bd;
+        font-family: $primary-font;
+        font-weight: bold;
+        font-size: 11px;
+        padding: 0px 5px 0px 5px;
+    }
+
+    .arrow_box:after, .arrow_box:before {
+        #{$first_pos}: $first_per;
+        #{$second_pos}: $second_per;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    .arrow_box:after {
+        border-color: rgba(249, 249, 249, 0);
+        #{$aborder}: #f9f9f9;
+        border-width: 8px;
+        margin-top: -8px;
+    }
+    .arrow_box:before {
+        border-color: rgba(232, 232, 232, 0);
+        #{$aborder}: #e8e8e8;
+        border-width: 9px;
+        margin-top: -9px;
+    }
+ }
+                

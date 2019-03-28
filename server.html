@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png">
+    <title>GPS Tracking & Fleet Management System | Server</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/css/leaflet.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-datepicker3.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/app.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/flat/blue.css">
+</head>
+
+<body>
+    <div class="header collapse in menuCollapse hidden-xs menu-full">
+        <div class="logo">
+            <a href="#">
+                <img src="assets/image/logo-header-main.png" class="logo-main" />
+                <img src="assets/image/logo-header-gpswox.png" class="logo-alt" />
+            </a>
+        </div>
+        <span class="inside_cms_txt">ADMIN CMS</span>
+        <div class="menu_inside">
+            <a href="#" class="menu_link">Map</a>
+            <a href="#" class="menu_link">Users (8 / 39)</a>
+            <a href="#" class="menu_link">Events</a>
+            <div class="menu_link" id="menu_content">
+                Content
+                <div class="menu_link_dropdown">
+                    <a href="#" class="dropdown_link">Email templates</a>
+                    <a href="#" class="dropdown_link">SMS templates</a>
+                    <a href="#" class="dropdown_link">Map icons</a>
+                    <a href="#" class="dropdown_link">Device icons</a>
+                </div>
+            </div>
+            <a href="#" class="menu_link">Setup</a>
+            <a href="#" class="menu_link">Logs</a>
+			<div class="top_line_dropdown">
+                <span class="logged_in_user">
+                    Admin@gpswox.com (Admin)
+                    
+                    <div class="top_line_dropdown_content">
+                        <a href="#">Restart Tracking Service</a>
+                        <a href="#">Log Out</a>
+                    </div>
+                </span>
+            </div>
+        </div>      
+    </div>
+    
+    <div class="header-collapsed header-mobile visible-xs">
+        <div class="logo">
+            <a href="#">
+                <img src="assets/image/logo-header-main.png" class="logo-main" />
+            </a>
+        </div>   
+    </div>
+	
+	<div style="clear: both;"></div>
+    
+    <div class="container inside">
+        <div class="inside_block">
+          <div class="sep_block">
+              <div class="inside_headline">
+                    <h3 class="headline_txt">Main Server Settings</h3>
+               </div>
+               <div class="inside_content sep">
+					<form name="server_settings" method="post" role="form">
+					   <div class="sep_content">
+						   <h3 class="sep_section_headline">Server name</h3>
+						   <input type="text" class="form-control sep-input" id="sname" value="John stevens">
+						   <h3 class="sep_section_headline s2">Default maps</h3>
+						   <div class="sep_checkboxes_block">
+							   <div class="sep_checkbox sep_primary">
+								   <label><input type="checkbox" value="">Google hybrid</label>
+							   </div>
+							   <div class="sep_checkbox sep_primary">
+								   <label><input type="checkbox" value="">Google terrain</label>
+							   </div>
+							   <div class="sep_checkbox">
+								   <label><input type="checkbox" value="">Google normal</label>
+							   </div>
+							   <div class="sep_checkbox">
+								   <label><input type="checkbox" value="">Google street man</label>
+							   </div>
+							   <div class="sep_checkbox">
+								   <label><input type="checkbox" value="">Google satellite</label>
+							   </div>
+							   <div class="sep_checkbox">
+								   <label><input type="checkbox" value="">Yandex</label>
+							   </div>
+						   </div>
+							<div class="sep_select_block">
+								<div class="sep_select">
+									<label id="lang1">Default language</label>
+									<select class="sep_select_input" id="lang1">
+										<option>en</option>
+										<option>dk</option>
+										<option>lt</option>
+									</select>
+								</div>
+								<div class="sep_select">
+									<label id="dat1">Default date format</label>
+									<select class="sep_select_input" id="dat1">
+										<option>dd-mm-yy</option>
+										<option>yy-mm-dd</option>
+										<option>mm-dd-yy</option>
+									</select>
+								</div>
+								<div class="sep_select">
+									<label id="time1">Default time format</label>
+									<select class="sep_select_input" id="time1">
+										<option>24 hour clock</option>
+										<option>12 hour clock</option>
+									</select>
+								</div>
+								<div class="sep_select">
+									<label id="dist1">Default unit of distance</label>
+									<select class="sep_select_input" id="dist1">
+										<option>Kilometer</option>
+										<option>Miles</option>
+										<option>Metres</option>
+									</select>
+								</div>
+								<div class="sep_select">
+									<label id="cap1">Default unit of capacity</label>
+									<select class="sep_select_input" id="cap1">
+										<option>Liter</option>
+										<option>Mililiters</option>
+									</select>
+								</div>
+								<div class="sep_select">
+									<label id="alti1">Default unit of altitude</label>
+									<select class="sep_select_input" id="alti1">
+										<option>Meters</option>
+										<option>Kilometers</option>
+										<option>Centimeters</option>
+									</select>
+								</div>
+								<div class="sep_select">
+									<label id="dmap1">Default map</label>
+									<select class="sep_select_input" id="dmap1">
+										<option>Google normal</option>
+										<option>Unknown</option>
+										<option>Custom</option>
+									</select>
+								</div>
+								<div class="sep_select">
+									<label id="timeout1">Default object online timeout</label>
+									<select class="sep_select_input" id="timeout1">
+										<option>60 min</option>
+										<option>40 min</option>
+										<option>20 min</option>
+									</select>
+								</div>
+							</div>
+							<div class="sep_registration">
+									<label class="radio-label">Allow users registration</label>
+									<label class="radio-inline"><input type="radio" name="areg">No</label>
+									<label class="radio-inline"><input type="radio" name="areg">Yes</label>
+							</div>
+					   </div>
+						<div class="sep_footer">
+							<div class="sep_footer_content">
+								<input type="submit" value="Save" class="submit_sep_btn">
+								<input type="reset" value="Cancel" class="reset_sep_btn">
+							</div>
+						</div>
+				   </form>
+               </div>
+          </div>
+        
+		
+		
+		<div class="sep_block">
+              <div class="inside_headline">
+                    <h3 class="headline_txt">New user registration defaults</h3>
+               </div>
+               <div class="inside_content sep">
+					<form name="user_registration_defaults" method="post">
+					   <div class="sep_content">
+							<div class="sep_select_block">
+							   <div class="sep_select">
+									<label id="timezone2">Default timezone</label>
+									<select class="sep_select_input" id="timezone2">
+										<option>en</option>
+										<option>dk</option>
+										<option>lt</option>
+									</select>
+								</div>
+								<div class="sep_select">
+									<label id="limit2">Devices limit</label>
+									<select class="sep_select_input" id="limit2">
+										<option>10</option>
+										<option>15</option>
+										<option>20</option>
+									</select>
+								</div>
+								<div class="sep_select">
+									<label id="exp2">Subscription expiration</label>
+									<select class="sep_select_input" id="exp2">
+										<option>after 365 days</option>
+										<option>after 720 days</option>
+										<option>after 420 days</option>
+									</select>
+								</div>
+							</div>
+							<div class="sep_checkboxes_block">
+								<div class="sep_checkbox sep_primary">
+								   <label><input type="checkbox" value="">Add devices</label>
+							   </div>
+							   <div class="sep_checkbox sep_primary">
+								   <label><input type="checkbox" value="">Show period</label>
+							   </div>
+							   <div class="sep_checkbox">
+								   <label><input type="checkbox" value="">SMS gateway</label>
+							   </div>
+							   <div class="sep_checkbox">
+								   <label><input type="checkbox" value="">Send command</label>
+							   </div>
+							   <div class="sep_checkbox">
+								   <label><input type="checkbox" value="">Show history</label>
+							   </div>
+							</div>
+					   </div>
+					   <div class="sep_footer">
+							<div class="sep_footer_content">
+								<input type="submit" value="Save" class="submit_sep_btn">
+								<input type="reset" value="Cancel" class="reset_sep_btn">
+							</div>
+						</div>
+					</form>
+			   </div>
+	    </div>
+		
+		
+		
+		<div class="sep_block">
+              <div class="inside_headline">
+                    <h3 class="headline_txt">Login page logo</h3>
+               </div>
+               <div class="inside_content sep">
+					<form name="user_registration_defaults" method="post">
+						<div class="sep_content">
+							<img src="assets/image/admin_logo.png" alt="admin_cms_logo">	
+						</div>
+						<div class="sep_footer">
+							<div class="sep_footer_content">
+								<div class="fileUpload">
+									<span>Upload logo</span>
+									<input type="file" class="upload_input" />
+								</div>
+								<input type="submit" value="Save" class="submit_sep_btn">
+								<input type="reset" value="Cancel" class="reset_sep_btn">
+							</div>
+						</div>
+					</form>
+			   </div>
+	    </div>
+        <div style="clear: both;"></div>  
+        </div>
+        
+        
+        
+        <div class="footer_inside">
+            <div class="footer_corner_wrap">
+                    <span class="footer_txt">2016 &copy; GPS Tracker</span> <span class="footer_txt">214.76.165.1.10 | CPU 1,26% | RAM: 4447Mb | DB size: 4451Mb</span>
+            </div>
+        </div>  
+    </div>
+    
+    
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap-select.min.js"></script>
+    <script src="assets/js/bootstrap-datepicker.min.js"></script>
+    
+    
+    <script type="text/javascript">
+    $(document).on('click', '.top_line_dropdown', function(e) {
+        var drop = $('.top_line_dropdown_content');
+        if(!(drop.hasClass('log_show')))
+        {
+            $(drop).addClass('log_show');
+        }
+        else
+        {
+            $(drop).removeClass('log_show');        
+        }      
+    });        
+    </script>
+	
+	<script src="assets/js/icheck.js"></script>
+	
+	<script type="text/javascript">
+	$(document).ready(function(){
+	  $('input').iCheck({
+		checkboxClass: 'icheckbox_flat-blue',
+		radioClass: 'iradio_flat-blue'
+	  });
+	});
+	</script>
+</body>
+</html>
